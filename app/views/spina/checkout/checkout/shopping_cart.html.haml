@@ -1,0 +1,35 @@
+%section#main_content
+  %section#main
+    = form_with model: @order, url: wizard_path, method: :put do |f|
+      = hidden_field_tag :locale, I18n.locale
+
+      .main-container
+        .checkout-heading=t 'spina.checkout.shopping_cart'
+
+        - if @order.errors.any?
+          = @order.errors.full_messages.inspect
+
+        %table.table.table-shopping-cart
+          = f.fields_for :order_items, f.object.order_items.sort_by{|o|o.orderable.name} do |ff|
+            %tr
+              %td{style: 'width: 80px'}
+                .select-dropdown
+                  - quantities = 1..99
+                  = ff.select :quantity, options_for_select(quantities, ff.object.quantity)
+
+              %td 
+                %strong= ff.object.orderable.name
+                %br/
+                %small.text-muted= number_to_currency ff.object.unit_price, unit: '€'
+
+              %th.text-right
+                = number_to_currency ff.object.total, unit: '€'
+                %br/
+                -#%small= link_to t('spina.checkout.delete_order_item'), order_order_item_path(@order, ff.object, locale: I18n.locale), class: 'text-muted', data: {method: :delete, confirm: t('spina.checkout.are_you_sure')}
+
+    .main-container-links
+      .main-container
+        = link_to t('spina.checkout.back_to_website'), '/', class: 'button button-link', style: 'padding-left: 0px', data: {turbolinks: false}
+        = button_to t('spina.checkout.next'), checkout_path('shopping_cart', locale: I18n.locale), method: :put, class: 'button button-primary'
+
+  %aside#sidebar= render 'sidebar'

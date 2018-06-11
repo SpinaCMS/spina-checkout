@@ -1,0 +1,41 @@
+nl:
+  spina:
+    checkout:
+      back_to_cart: Terug naar winkelmand
+      back_to_delivery: Terug naar verzending
+      back_to_details: Terug naar gegevens
+      back_to_payment: Terug naar betaling
+      back_to_website: Terug naar website
+
+      billing_address: Factuuradres
+
+      confirm_order: Bevestigen en betalen
+
+      edit_order: Bestelling bewerken
+
+      overview: Overzicht
+      order_not_yet_received: De bestelling is nog niet bevestigd.
+
+      shipping: Verzenden
+      pickup: Ophalen
+
+      next: Volgende
+
+      choose_country: Kies land
+      choose_delivery: Kies verzendmethode
+      choose_payment: Kies betalingsmethode
+
+      delivery_method: Verzendmethode
+      payment_method: Betalingsmethode
+
+      new_address: Nieuw adres
+
+      reference: Referentie
+      optional: (optioneel)
+
+      steps:
+        shopping_cart: Winkelmand
+        details: Gegevens
+        delivery: Verzending
+        payment: Betaling
+        overview: Overzicht
