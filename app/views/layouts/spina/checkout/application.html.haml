@@ -2,8 +2,8 @@
 %html
   %head
     %title Checkout
-    = stylesheet_link_tag    'spina/checkout/application', media: 'all', 'data-turbolinks-track' => true
-    -#= javascript_include_tag 'checkout/checkout'
+    = stylesheet_link_tag    'spina/checkout/application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'spina/checkout/application', 'data-turbolinks-track' => true
     = csrf_meta_tags
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=0'}
     %meta{name: 'turbolinks-cache-control', content: 'no-cache'}

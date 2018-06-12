@@ -157,8 +157,8 @@ body
   display: flex
 
   div
-    font-size: rem(15)
-    line-height: rem(20)
+    font-size: 15px
+    line-height: 20px
 
   strong
     font-weight: 600
@@ -198,6 +198,65 @@ body
       td, th
         border-top: none
 
+    .shopping-cart-addons
+      td, th
+        border-top: none
+        font-size: 15px
+        padding: 0
+        padding-right: 20px
+        transform: translateY(-7px)
+        text-indent: 20px
+
+      &:last-child
+        td, th
+          padding-bottom: 8px
+
+.table-sidebar-totals
+  font-size: 14px
+
+  .sidebar-price
+    font-weight: bold
+
+  .sidebar-price-large
+    font-size: 18px
+    font-weight: bold
+
+  .table-sidebar-addons
+    td, th
+      padding: 0
+      text-indent: 10px
+      transform: translateY(-10px)
+
+  .order-item-preview-image
+    background: white
+    border: 1px solid #eee
+    border-radius: 3px
+    display: inline-block
+    margin-right: 5px
+    padding: 3px
+    position: relative
+    vertical-align: middle
+
+    &:after
+      background: #c7c6c2
+      border-radius: 12px
+      color: white
+      content: attr(data-quantity)
+      display: block
+      font-size: 13px
+      font-weight: bold
+      left: -8px
+      height: 24px
+      line-height: 24px
+      position: absolute
+      text-align: center
+      top: -8px
+      width: 24px
+
+    img
+      border-radius: 2px
+      display: block
+
 // Buttons
 
 .button
@@ -226,12 +285,12 @@ body
 
 .checkout-heading
   color: $gray-darker
-  font-size: rem(24)
+  font-size: 24px
   margin-bottom: 20px
 
 .checkout-subheading
   color: $gray-darker
-  font-size: rem(20)
+  font-size: 20px
   margin-bottom: 20px
   margin-top: 20px
 

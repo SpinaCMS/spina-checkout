@@ -10,7 +10,7 @@
           .form-group
             = f.text_field :email, placeholder: "Email", value: @order.email || current_customer.try(:email)
 
-        .checkout-subheading=t 'spina.checkout.steps.delivery_address'
+        .checkout-subheading= Spina::Shop::Order.human_attribute_name(:billing_address)
 
         - if flash[:info].present?
           .notification.notification-info

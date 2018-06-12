@@ -1,43 +1,57 @@
 .sidebar-container
-  %table.table
-    - @order.order_items.each do |order_item|
-      %tr
-        %td
-          = order_item.quantity
-          &times;
-          = order_item.description
-        %td.text-right
-          = number_to_currency order_item.total, unit: '€'
+  %table.table.table-sidebar-totals
+    - if @step != :shopping_cart
+      - @order.order_items.roots.each do |order_item|
+        %tr
+          %td
+            .order-item-preview-image{data: {quantity: order_item.quantity}}
+              - if order_item.orderable.product_images.first&.file&.attached?
+                = image_tag main_app.url_for(order_item.orderable.product_images.first.file.variant(resize: '100x100')), width: 50
+              - else
+                = image_tag "http://placehold.it/100x100.png", width: 50
+          %td
+            %strong= order_item.description
+          %td.text-right.sidebar-price
+            = number_to_currency order_item.total
+
+        - order_item.children.each do |child|
+          %tr.table-sidebar-addons
+            %td
+            %td
+              = child.description
+            %td.text-right
+              +
+              = number_to_currency child.total
 
     %tr
-      %td{colspan: 2}
+      %td{colspan: 3}
     %tr
-      %td= Spina::Shop::Order.human_attribute_name :sub_total
-      %td.text-right= number_to_currency @order.order_total, unit: '€'
+      %td{colspan: 2}= Spina::Shop::Order.human_attribute_name :sub_total
+      %td.text-right.sidebar-price= number_to_currency @order.order_total
 
     - if @order.requires_shipping?
       %tr
-        %td Verzending
-        %td.text-right= number_to_currency @order.delivery_price
+        %td{colspan: 2} Verzending
+        %td.text-right.sidebar-price= number_to_currency @order.delivery_price
 
     %tr
-      %td{colspan: 2}
+      %td{colspan: 3}
 
     - if @order.vat_reverse_charge?
       %tr.text-muted
-        %td=t 'spina.shop.tax.vat_reverse_charge'
-        %td.text-right= number_to_currency BigDecimal.new(0), unit: '€'
+        %td{colspan: 2}=t 'spina.shop.tax.vat_reverse_charge'
+        %td.text-right= number_to_currency BigDecimal.new(0)
     - else
       %tr.text-muted
-        %td= Spina::Shop::Order.human_attribute_name :total_excluding_tax
-        %td.text-right= number_to_currency @order.total_excluding_tax, unit: '€'
+        %td{colspan: 2}= Spina::Shop::Order.human_attribute_name :total_excluding_tax
+        %td.text-right= number_to_currency @order.total_excluding_tax
 
       - @order.tax_amount_by_rates.each do |tax_rate|
         - unless tax_rate[0] == 0
           %tr
-            %td.text-muted= "#{number_with_precision tax_rate[0], precision: 0}% btw"
+            %td.text-muted{colspan: 2}= "#{number_with_precision tax_rate[0], precision: 0}% btw"
             %td.text-right.text-muted= number_to_currency tax_rate[1][:tax_amount]
 
     %tr
-      %td= Spina::Shop::Order.human_attribute_name :total
-      %th.text-right= number_to_currency @order.total, unit: '€'
+      %td.sidebar-price-large{colspan: 2}= Spina::Shop::Order.human_attribute_name :total
+      %th.text-right.sidebar-price-large= number_to_currency @order.total

@@ -10,7 +10,7 @@
           = @order.errors.full_messages.inspect
 
         %table.table.table-shopping-cart
-          = f.fields_for :order_items, f.object.order_items.sort_by{|o|o.orderable.name} do |ff|
+          = f.fields_for :order_items, f.object.order_items.roots.sort_by{|o|o.orderable.name} do |ff|
             %tr
               %td{style: 'width: 80px'}
                 .select-dropdown
@@ -19,13 +19,20 @@
 
               %td 
                 %strong= ff.object.orderable.name
+                %small= link_to t('spina.checkout.delete_order_item'), order_item_path(ff.object), class: 'text-muted', data: {method: :delete, confirm: t('spina.checkout.are_you_sure')}
                 %br/
                 %small.text-muted= number_to_currency ff.object.unit_price, unit: '€'
-
               %th.text-right
-                = number_to_currency ff.object.total, unit: '€'
-                %br/
-                -#%small= link_to t('spina.checkout.delete_order_item'), order_order_item_path(@order, ff.object, locale: I18n.locale), class: 'text-muted', data: {method: :delete, confirm: t('spina.checkout.are_you_sure')}
+                = number_to_currency ff.object.total
+
+            - ff.object.children.each do |child|
+              %tr.shopping-cart-addons
+                %td
+                %td
+                  = child.description
+                %td.text-right
+                  +
+                  = number_to_currency child.total
 
     .main-container-links
       .main-container

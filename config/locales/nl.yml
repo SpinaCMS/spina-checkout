@@ -1,6 +1,8 @@
 nl:
   spina:
     checkout:
+      are_you_sure: Weet je het zeker?
+
       back_to_cart: Terug naar winkelmand
       back_to_delivery: Terug naar verzending
       back_to_details: Terug naar gegevens
@@ -11,12 +13,15 @@ nl:
 
       confirm_order: Bevestigen en betalen
 
+      delete_order_item: Verwijderen
+
       edit_order: Bestelling bewerken
 
       overview: Overzicht
       order_not_yet_received: De bestelling is nog niet bevestigd.
 
       shipping: Verzenden
+      shopping_cart: Winkelmand
       pickup: Ophalen
 
       next: Volgende

@@ -1,8 +1,10 @@
 module Spina::Checkout
   class CheckoutController < ApplicationController
-    include Wicked::Wizard
+    layout 'spina/checkout/application'
 
-    helper ApplicationHelper
+    helper Spina::Checkout::ApplicationHelper
+    
+    include Wicked::Wizard
 
     steps :shopping_cart, :details, :delivery, :payment, :overview, :success
 
