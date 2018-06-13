@@ -20,8 +20,9 @@
             %td
               = child.description
             %td.text-right
-              +
-              = number_to_currency child.total
+              - if child.total > 0
+                +
+                = number_to_currency child.total
 
     %tr
       %td{colspan: 3}
