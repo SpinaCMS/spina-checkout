@@ -3,14 +3,15 @@
     - if @step != :shopping_cart
       - @order.order_items.roots.each do |order_item|
         %tr
-          %td
+          %td{width: 50}
             .order-item-preview-image{data: {quantity: order_item.quantity}}
               - if order_item.orderable.product_images.first&.file&.attached?
                 = image_tag main_app.url_for(order_item.orderable.product_images.first.file.variant(resize: '100x100')), width: 50
               - else
                 = image_tag "http://placehold.it/100x100.png", width: 50
+
           %td
-            %strong= order_item.description
+            .order-item-description= order_item.description
           %td.text-right.sidebar-price
             = number_to_currency order_item.total
 

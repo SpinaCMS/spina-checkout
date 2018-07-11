@@ -11,7 +11,7 @@ module Spina
       end
 
       def payment_options_for_order(order)
-        payment_options = %w(ideal)
+        payment_options = %w(ideal paypal)
         payment_options
       end
 

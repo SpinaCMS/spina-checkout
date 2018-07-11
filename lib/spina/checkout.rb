@@ -1,4 +1,5 @@
 require "spina/checkout/engine"
+require "spina/checkout/railtie" if defined?(Rails)
 require "wicked"
 
 module Spina

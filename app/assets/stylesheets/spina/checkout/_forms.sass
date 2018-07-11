@@ -74,6 +74,7 @@
     background: #fff
     border: 1px solid $gray
     border-radius: 10px
+    box-sizing: border-box
     height: 20px
     margin: 0 20px 0 10px
     position: relative
@@ -108,7 +109,7 @@
         color: $green
 
 .form-options input[type="radio"]:checked + .form-option-container
-  background: tint($gray, 95%)
+  background: #fdfbf4 // Light yellow
   position: relative
 
   .form-option-extended
@@ -218,3 +219,52 @@ input[type="checkbox"][name="order[separate_delivery_address]"]:checked ~ .check
   margin-bottom: 20px
   opacity: .75
   padding: 20px
+
+// Quantity control
+.order-item-quantity-control
+  background: white
+  border: 1px solid $gray-light
+  border-radius: 3px
+  display: flex
+  max-width: 150px
+
+  .order-item-quantity-control-subtract, .order-item-quantity-control-add
+    align-items: center
+    background: $gray-lightest
+    color: $gray-dark
+    display: flex
+    font-size: 28px
+    font-weight: bold
+    justify-content: center
+    text-align: center
+    text-decoration: none
+    width: 40px
+
+    img
+      opacity: .5
+      width: 12px
+
+    &:hover img
+      opacity: .9
+
+  .order-item-quantity-control-number
+    border-left: 1px solid $gray-light
+    border-right: 1px solid $gray-light
+    color: $gray-darkest
+    flex: 1
+    font-size: 16px
+    font-weight: 500
+    line-height: 40px
+    text-align: center
+
+    span
+      font-weight: 700
+
+.order-item-delete
+  display: inline-block
+  line-height: 40px
+  text-align: center
+  width: 40px
+
+  img
+    vertical-align: middle

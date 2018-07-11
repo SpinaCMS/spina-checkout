@@ -10,6 +10,7 @@
           .notification.notification-danger
             .notification-message
               =t 'spina.checkout.order_not_yet_received'
+              = @order.current_state
               = link_to t('spina.checkout.edit_order'), cancel_and_duplicate_checkout_index_path({locale: I18n.locale}), class: '', data: {method: :post}
 
         - if flash[:info].present?
@@ -65,7 +66,9 @@
             =t 'spina.checkout.payment_method'
 
             .checkout-block-summary
-              %div=t "spina.checkout.payment_options.#{@order.payment_method}"
+              %div
+                = image_tag "spina/checkout/payment_options/#{@order.payment_method}.svg", height: 20, style: 'vertical-align: middle'
+                =t "spina.checkout.payment_options.#{@order.payment_method}"
 
       .main-container-links
         .main-container

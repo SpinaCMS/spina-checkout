@@ -21,6 +21,7 @@ body
   position: fixed
   top: 0px
   width: 100%
+  z-index: 100
 
   .safe-checkout
     color: $gray
@@ -39,6 +40,7 @@ body
   position: fixed
   top: 73px
   width: 100%
+  z-index: 100
 
   .wizard-step
     color: $gray
@@ -127,7 +129,7 @@ body
     flex-direction: column
 
 .checkout-block
-  border: 1px solid shade($gray-light, 10%)
+  border: 1px solid $gray-light
   color: $gray-dark
   flex: 1
   margin-bottom: 20px
@@ -141,7 +143,7 @@ body
     margin-right: 0
 
     @media #{$mobile}
-      border-left: 1px solid shade($gray-light, 10%)
+      border-left: 1px solid $gray-light
 
 .checkout-block-divider
   border: none
@@ -155,6 +157,7 @@ body
 .checkout-block-summary
   align-items: center
   display: flex
+  margin-top: 10px
 
   div
     font-size: 15px
@@ -211,6 +214,11 @@ body
         td, th
           padding-bottom: 8px
 
+  .order-item-description
+    display: inline-block
+    font-size: 16px
+    font-weight: 700
+
 .table-sidebar-totals
   font-size: 14px
 
@@ -227,35 +235,35 @@ body
       text-indent: 10px
       transform: translateY(-10px)
 
-  .order-item-preview-image
-    background: white
-    border: 1px solid #eee
-    border-radius: 3px
-    display: inline-block
-    margin-right: 5px
-    padding: 3px
-    position: relative
-    vertical-align: middle
+.order-item-preview-image
+  background: white
+  border: 1px solid #eee
+  border-radius: 3px
+  display: inline-block
+  margin-right: 5px
+  padding: 3px
+  position: relative
+  vertical-align: middle
 
-    &:after
-      background: #c7c6c2
-      border-radius: 12px
-      color: white
-      content: attr(data-quantity)
-      display: block
-      font-size: 13px
-      font-weight: bold
-      left: -8px
-      height: 24px
-      line-height: 24px
-      position: absolute
-      text-align: center
-      top: -8px
-      width: 24px
+  &[data-quantity]:after
+    background: #c7c6c2
+    border-radius: 12px
+    color: white
+    content: attr(data-quantity)
+    display: block
+    font-size: 13px
+    font-weight: bold
+    left: -8px
+    height: 24px
+    line-height: 24px
+    position: absolute
+    text-align: center
+    top: -8px
+    width: 24px
 
-    img
-      border-radius: 2px
-      display: block
+  img
+    border-radius: 2px
+    display: block
 
 // Buttons
 
@@ -276,7 +284,7 @@ body
     color: #fff
 
     &:hover
-      background: shade($primary, 20%)
+      background: $primary
 
   &.button-link
     color: $gray-darkest

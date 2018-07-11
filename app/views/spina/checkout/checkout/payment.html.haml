@@ -10,13 +10,15 @@
           .form-options
             - payment_options_for_order(@order).each do |option|
               .form-option
-                = radio_button_tag 'order[payment_method]', option, option == f.object.payment_method, checked: true
+                %label
+                  = radio_button_tag 'order[payment_method]', option, option == f.object.payment_method
 
-                .form-option-container
-                  .form-option-radio-button
-                  .form-option-image
-                  .form-option-description
-                    %strong=t "spina.checkout.payment_options.#{option}"
+                  .form-option-container
+                    .form-option-radio-button
+                    .form-option-image
+                      = image_tag "spina/checkout/payment_options/#{option}.svg", height: 30
+                    .form-option-description
+                      %strong=t "spina.checkout.payment_options.#{option}"
 
         %p{style: 'margin-top: 30px'}
           %strong=t 'spina.checkout.reference'

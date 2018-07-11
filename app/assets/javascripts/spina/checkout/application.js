@@ -10,6 +10,13 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+// Rails UJS
 //= require rails-ujs
+
+// Turbolinks
 //= require turbolinks
-//= require_tree .
+
+// Stimulus
+//= require spina/stimulus.umd
+//= require_tree ./controllers
