@@ -14,19 +14,19 @@ module Spina::Checkout
         @order = current_order
         redirect_to wizard_path(:shopping_cart) and return unless @order.everything_valid?
       when :success
-        @order = Spina::Shop::Order.find(session[:order_id])
-        redirect_to wizard_path(:shopping_cart) and return if @order.building?
+        # @order = Spina::Shop::Order.find_by(id: session[:order_id])
+        # redirect_to wizard_path(:shopping_cart) and return if @order.blank? || @order.building?
 
         # If the order failed, duplicate it and try again.
         # Otherwise clear the session and show the success page.
         # Payment could still be pending, communicate accordingly.
-        if @order.failed? || @order.cancelled?
-          session[:order_id] = @order.duplicate.try(:id)
-          flash[:error] = t("spina.checkout.payment_failed_try_again")
-          redirect_to wizard_path(:overview) and return
-        else
-          session[:order_id] = nil
-        end
+        # if @order.failed? || @order.cancelled?
+        #   session[:order_id] = @order.duplicate.try(:id)
+        #   flash[:error] = t("spina.checkout.payment_failed_try_again")
+        #   redirect_to wizard_path(:overview) and return
+        # else
+        #   session[:order_id] = nil
+        # end
       else
         @order = current_order
         redirect_to wizard_path(:overview) and return unless @order.building?
