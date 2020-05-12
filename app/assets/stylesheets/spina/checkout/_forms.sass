@@ -1,0 +1,314 @@
+// Form group
+.form-group
+  display: flex
+  margin: 12px 0
+  width: 100%
+
+  .input-wrapper
+    margin: 0 6px
+    
+    &:first-child
+      margin-left: 0
+
+    &:last-child
+      margin-right: 0
+
+  .input-wrapper
+    flex: 1
+
+  .input-wrapper-default
+    flex: 1
+
+  .input-wrapper-medium
+    flex: 2
+
+  .input-wrapper-large
+    flex: 3
+
+@media #{$mobile}
+  .form-group.form-address
+    flex-wrap: wrap
+
+    .input-wrapper:first-child
+      flex-basis: 100%
+      margin-bottom: 12px
+      margin-right: 0
+
+    .input-wrapper:nth-child(2)
+      margin-left: 0
+
+// Inline label
+.form-inline-label
+  align-items: center
+  display: flex
+  flex: 1
+
+// Separate label tags
+label.form-label
+  color: $gray-darkest
+  font-weight: 400
+
+
+// Input
+.input-wrapper
+  background: white
+  border-radius: 4px
+  position: relative
+
+  input[type="text"], 
+  input[type="email"], 
+  input[type="password"], 
+  input[type="number"],
+  textarea
+    background: transparent
+    border: 1px solid $gray-light
+    border-radius: 4px
+    box-sizing: border-box
+    color: $gray-darkest
+    font-size: 16px
+    height: 50px
+    padding: 14px
+    position: relative
+    resize: none
+    transition: padding-top .2s ease, padding-bottom .2s ease
+    width: 100%
+
+    &[readonly]
+      color: $gray
+
+    &:focus
+      border: 2px solid $gray-darker
+      outline: none
+      padding-left: 13px
+
+    &.input-small
+      height: 38px
+      padding: 8px
+
+    &.input-mini
+      height: 26px
+      padding: 4px 8px
+
+  textarea
+    height: 175px
+
+  &.valid
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"], 
+    input[type="number"],
+    textarea
+      background: white
+
+  &.valid:after
+    color: $green
+    position: absolute
+    right: 14px
+    top: 18px
+
+  &.invalid
+    input[type="text"], 
+    input[type="email"], 
+    input[type="password"], 
+    input[type="number"],
+    textarea
+      border-color: $red
+
+  &.invalid:after
+    color: $red
+    position: absolute
+    right: 14px
+    top: 18px
+
+  &[data-label]:before
+    color: $gray
+    content: attr(data-label)
+    display: block
+    left: 15px
+    position: absolute
+    top: 15px
+    transition: transform .2s ease, font-size .2s ease
+    z-index: 0
+
+  &.focused
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="number"],
+    textarea
+      padding-bottom: 8px
+      padding-top: 20px
+
+    &[data-label]:before
+      font-size: 12px
+      transform: translateY(-8px)
+      z-index: 1
+
+  .field_with_errors
+    background-color: #f7e8e9
+    border-radius: 4px
+
+
+.form-dropdown
+  background: white
+  border: 1px solid $gray-light
+  border-radius: 4px
+  box-sizing: border-box
+  height: 50px
+  line-height: 28px
+  margin: 0
+  overflow: hidden
+  padding: 0
+  position: relative
+  width: 100%
+
+  &:before
+    color: $gray-dark
+    font-size: 13px
+    font-weight: normal
+    line-height: 28px
+    position: absolute
+    right: 14px
+    top: 11px
+    z-index: 1
+
+  select
+    appearance: none
+    background-color: transparent
+    background-image: none
+    border: none
+    box-shadow: none
+    color: $gray-darkest
+    cursor: pointer
+    display: inline-block
+    font-family: $font-family
+    font-size: 16px
+    font-weight: 400
+    line-height: 16px
+    margin: 0
+    outline: none
+    padding: 23px 36px 11px 14px
+    position: relative
+    width: 115%
+    z-index: 2
+    -moz-appearance: none
+    -webkit-appearance: none
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+
+  &.form-dropdown-small
+    height: 41px
+
+    &:before
+      top: 7px
+
+    select
+      font-size: 15px
+      padding: 18px 42px 7px 14px
+
+// Form options
+.form-options
+  width: 100%
+
+  .form-option
+    input[type="radio"]
+      display: none
+
+  .form-option-container
+    align-items: center
+    border: 1px solid $gray-light
+    cursor: pointer
+    display: flex
+    padding: 15px
+
+    @media #{$mobile}
+      display: block
+      padding: 10px
+
+    &:hover
+      background: $gray-lightest
+
+  .form-option-expanded
+    display: none
+
+  .form-option-button
+    display: none
+
+  .form-option-issuer
+    display: none
+
+  .form-option input[type="radio"]:checked
+    & + .form-option-container + .form-option-expanded
+      display: block
+
+  .form-option input[type="radio"]:checked + .form-option-container
+    background: $gray-lightest
+    position: relative
+    z-index: 1
+
+    .form-option-issuer
+      display: block
+      margin-right: 10px
+
+    .form-option-button
+      display: block
+
+      @media #{$mobile}
+        button
+          margin-top: 10px
+          width: 100%
+
+  .form-option:not(:last-child)
+    .form-option-container
+      border-bottom: none
+
+  .form-option:first-child
+    .form-option-container
+      border-radius: 4px 4px 0 0
+
+  .form-option:last-child
+    .form-option-container
+      border-bottom-left-radius: 4px
+      border-bottom-right-radius: 4px
+
+  .form-option-image
+    align-items: center
+    display: flex
+    justify-content: center
+    margin-left: 5px
+    margin-right: 20px
+    height: 50px
+    width: 50px
+
+    @media #{$mobile}
+      float: left
+      margin-right: 5px
+      margin-left: 0px
+
+    img
+      max-width: 100%
+      max-height: 70%
+      width: 100%
+
+  .form-option-description
+    flex: 1
+
+    strong
+      color: $gray-darkest
+      display: block
+      font-size: 16px
+      font-weight: 500
+
+    small
+      color: $gray
+      font-size: 15px
+
+      strong
+        display: inline
+        font-size: 15px
+        margin-left: 4px
+
+        @media #{$mobile}
+          margin-left: 0
+
+      .text-green
+        color: $green

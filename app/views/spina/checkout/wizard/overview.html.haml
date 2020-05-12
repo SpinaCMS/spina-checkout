@@ -3,6 +3,8 @@
     .main-content{data: {controller: "checkout-shopping-cart"}}
       %h2.heading-2=t 'spina.checkout.overview'
 
+      = render partial: 'spina/checkout/shared/notifications'
+
       Overview
 
     .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

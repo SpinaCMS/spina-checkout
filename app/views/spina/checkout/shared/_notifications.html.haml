@@ -1,0 +1,3 @@
+- if current_order.errors.any?
+  .notification.notification-danger
+    .notification-message!= current_order.errors.full_messages.join("<br />")

@@ -3,6 +3,10 @@
     .main-content{data: {controller: "checkout-shopping-cart"}}
       %h2.heading-2=t 'spina.checkout.details'
 
-      Details
+      = render partial: 'spina/checkout/shared/notifications'
+
+      .form-group
+        .input-wrapper{data: {label: Spina::Shop::Order.human_attribute_name(:email), controller: "input"}}
+          = f.text_field :email, data: {target: "input.field", action: "keyup->input#placeholder change->input#placeholder"}
 
     .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

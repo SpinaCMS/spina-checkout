@@ -3,13 +3,15 @@
     .main-content{data: {controller: "checkout-shopping-cart"}}
       %h2.heading-2=t 'spina.checkout.shopping_cart'
 
+      = render partial: 'spina/checkout/shared/notifications'
+
       .shopping-cart-item-list{data: {target: "checkout-shopping-cart.cartItemList"}}
         = render partial: 'order_item', collection: current_order.order_items
 
       .form-group{style: "margin-top: 30px"}
         = link_to '/', class: 'button button-link checkout-back-link', style: 'padding-left: 0', data: {turbolinks: false} do
           %i.icon.icon-arrow-left
-          %span=t 'checkout.back_to_webshop'
+          %span=t 'spina.checkout.back_to_webshop'
 
     .sidebar
       = render partial: 'spina/checkout/sidebar/sidebar'
