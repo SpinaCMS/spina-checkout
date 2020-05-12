@@ -1,0 +1,8 @@
+.overflow-container
+  = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
+    .main-content{data: {controller: "checkout-shopping-cart"}}
+      %h2.heading-2=t 'spina.checkout.overview'
+
+      Overview
+
+    .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

@@ -1,0 +1,29 @@
+.sidebar-content
+  - if @step == :shopping_cart
+    .sidebar-title=t 'checkout.overview'
+  - else
+    .sidebar-title
+      =t 'checkout.products', count: current_order.order_items.sum(:quantity)
+      = link_to t('checkout.edit'), wizard_path(:shopping_cart) if current_order.building?
+
+    .sidebar-products
+      .sidebar-products-list
+        = render partial: 'spina/checkout/sidebar/order_item', collection: @order_items
+      .sidebar-products-navigation
+        - if @order_items.size > 11
+          = link_to "Meer producten laten zien...", checkout_sidebar_order_items_path(page: 2), class: 'button button-white button-block button-small', data: {remote: true}
+
+  .sidebar-summary{data: {controller: "sidebar-summary", summary_url: sidebar_summary_url}}
+    = render partial: 'spina/checkout/sidebar/summary/blank_state'
+
+  - if @step == :overview
+    .sidebar-terms-and-conditions
+      =t 'spina.checkout.terms_and_conditions_html', link: '#'
+
+    = button_tag t('spina.checkout.pay_order'), type: :submit, class: 'button button-primary button-large', style: "margin-top: 20px", data: {disable: "..."}
+
+  - else
+    = button_tag type: :submit, class: 'button button-primary button-large', style: "margin-top: 20px", data: {disable_with: "..."} do
+      .button-content
+        =t 'spina.checkout.next'
+        %i.icon.icon-arrow-right

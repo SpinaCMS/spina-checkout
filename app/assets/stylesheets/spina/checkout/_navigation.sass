@@ -1,0 +1,59 @@
+nav#wizard
+  align-items: center
+  border-bottom: 4px solid $gray-lighter
+  display: flex
+  justify-content: center
+  text-align: center
+
+  @media #{$mobile}
+    background: white
+    top: 49px
+    position: fixed
+    width: 100%
+    z-index: 100
+
+  .wizard-step
+    border-bottom: 4px solid transparent
+    color: $gray-light
+    display: flex
+    font-weight: 500
+    margin-bottom: -4px
+    padding: 20px
+    text-decoration: none
+    white-space: nowrap
+
+    &.current-step
+      border-color: $gray-darker
+      color: $gray-darker
+
+      .wizard-icon
+        background: $gray-darker
+
+    .wizard-icon
+      background: $gray-light
+      border-radius: 13px
+      color: white
+      font-size: 14px
+      font-weight: 700
+      height: 26px
+      line-height: 26px
+      margin-right: 10px
+      margin-top: -2px
+      width: 26px
+
+  @media #{$mobile}
+    .wizard-step
+      display: none
+
+    .wizard-step.current-step
+      display: flex
+      padding: 10px
+
+.checkout-back-link
+  @media #{$mobile}
+    left: 20px
+    position: fixed
+    top: 52px
+
+    span
+      display: none

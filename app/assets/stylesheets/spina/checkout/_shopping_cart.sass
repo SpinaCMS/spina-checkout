@@ -1,0 +1,105 @@
+.shopping-cart-empty-gif
+  border-radius: 4px
+  margin-top: 20px
+  width: 100%
+
+.shopping-cart-item
+  align-items: center
+  border-bottom: 1px solid $gray-lighter
+  display: flex
+  padding: 20px 0
+
+  @media #{$mobile}
+    display: block
+    padding: 10px 0
+
+  &:last-child
+    border: none
+
+  &-image
+    height: 80px
+    margin-right: 10px
+    width: 80px
+
+    @media #{$mobile}
+      float: left
+      height: 62px
+      width: 62px
+
+    img
+      width: 100%
+
+  &-name
+    color: $gray-darkest
+    flex: 1
+    font-size: 17px
+    font-weight: 500
+
+    a
+      color: $gray-darkest
+      display: block
+      text-decoration: none
+
+    small
+      color: $gray
+      display: block
+      font-size: 14px
+      font-weight: 400
+
+      &.text-danger
+        color: $red
+
+  &-price
+    color: $gray-darkest
+    font-size: 18px
+    font-weight: 500
+    padding: 0 10px
+
+  &-action
+    @media #{$mobile}
+      display: inline-block
+
+  &-action a
+    color: $gray
+    display: block
+    font-size: 18px
+    padding: 10px
+
+    @media #{$mobile}
+      padding-right: 20px
+
+    &:hover
+      color: $gray-darker
+
+  &-quantity
+    margin-left: 5px
+
+    @media #{$mobile}
+      clear: both
+      display: inline-block
+      margin-left: 0
+      margin-top: 10px
+      width: calc(100% - 60px)
+
+      .form-group
+        margin-bottom: 0
+
+    .input-wrapper
+      width: 50px
+
+    input
+      font-weight: 500
+      text-align: center
+
+    .button
+      align-items: center
+      display: flex
+      padding-left: 10px
+      padding-right: 10px
+
+    .button:first-child
+      border-color: $green
+      color: $green
+
+      &:hover
+        background: $gray-lightest

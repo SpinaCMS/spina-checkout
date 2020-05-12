@@ -1,0 +1,53 @@
+.overflow-container
+  display: flex
+  flex: 1
+  overflow: hidden
+
+  @media #{$mobile}
+    display: block
+    overflow: visible
+
+.container
+  display: flex
+  flex: 1
+  margin: 0 auto
+  max-width: 1140px
+  width: 100%
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active)
+    max-width: none
+
+  @media #{$mobile}
+    display: block
+
+  .main-content
+    flex: 1
+    overflow: auto
+    padding: 30px 40px
+    -webkit-overflow-scrolling: touch
+
+    @media #{$mobile}
+      padding: 20px
+
+  .sidebar
+    display: flex
+    position: relative
+    width: 440px
+
+    @media #{$mobile}
+      width: 100%
+
+    &:after
+      background: $gray-lightest
+      content: " "
+      display: block
+      height: 300%
+      left: 0px
+      position: absolute
+      top: 0px
+      width: 300%
+      z-index: -1
+
+      @media #{$mobile}
+        height: 100%
+        width: 100%

@@ -1,0 +1,5 @@
+.sidebar-product{data: {quantity: order_item.quantity}}
+  .sidebar-product-image
+    = order_item.orderable&.root
+  .sidebar-product-name= order_item.orderable.full_name
+  .sidebar-product-price= number_to_currency order_item.total

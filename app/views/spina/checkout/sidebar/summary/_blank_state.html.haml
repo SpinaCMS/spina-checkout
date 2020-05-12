@@ -1,0 +1,49 @@
+/ Subtotal
+.sidebar-summary-line
+  .pull-right= loading_gif
+
+  - if current_order.prices_include_tax?
+    =t 'spina.checkout.subtotal'
+  - else
+    =t 'spina.checkout.subtotal_excl_tax'
+
+/ Discount
+- if current_order.discount.present?
+  .sidebar-summary-line.text-success
+    .pull-right= loading_gif
+    %span.text-success= current_order.discount.description
+
+/ Delivery costs
+- if current_order.delivery_option.present?
+  .sidebar-summary-line
+    .pull-right= loading_gif
+    =t 'spina.checkout.delivery_costs'
+
+/ Tax (only if order doesn't include tax)
+- if !current_order.prices_include_tax?
+  .sidebar-summary-line
+    .pull-right= loading_gif
+    =t 'spina.checkout.tax', rate: ''
+
+/ Total
+.sidebar-summary-line{class: ('sidebar-summary-line-big' unless current_order.gift_cards.any?)}
+  .pull-right= loading_gif
+  =t 'spina.checkout.total'
+
+/ Gift cards
+- if current_order.gift_cards.any?
+  .sidebar-summary-line.text-success
+    %span.text-success
+      .pull-right= loading_gif
+      =t 'spina.checkout.gift_card'
+
+  .sidebar-summary-line.sidebar-summary-line-big
+    .pull-right= loading_gif
+    =t 'spina.checkout.to_be_paid'
+
+- if current_order.requires_shipping?
+  / Delivery date if the order is shipped
+  .sidebar-delivery
+    .sidebar-summary-line
+      .pull-right
+      =t 'spina.checkout.expected_delivery'

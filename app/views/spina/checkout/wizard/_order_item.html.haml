@@ -1,0 +1,16 @@
+.shopping-cart-item
+  .shopping-cart-item-image= order_item.orderable
+  .shopping-cart-item-name
+    = link_to order_item.orderable.root.materialized_path, data: {turbolinks: false} do
+      = order_item.orderable.name
+      - if order_item.orderable.variant?
+        %small= order_item.orderable.variant_name
+      %strong= number_to_currency order_item.unit_price
+
+  .shopping-cart-item-action
+    = link_to order_item_path(order_item), data: {method: :delete} do
+      %i.icon.icon-bin
+
+  .shopping-cart-item-quantity
+    = order_item.quantity
+    &times;

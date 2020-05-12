@@ -3,7 +3,7 @@ module Spina
     class Railtie < Rails::Railtie
 
       initializer "spina_shop.assets.precompile" do |app|
-        app.config.assets.precompile += %w(spina/checkout/payment_options/*.svg spina/checkout/*.svg)
+        app.config.assets.precompile += %w(spina_checkout_manifest.js)
       end
 
     end

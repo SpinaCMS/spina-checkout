@@ -1,0 +1,32 @@
+header#primary
+  align-items: center
+  border-bottom: 1px solid $gray-lighter
+  display: flex
+  justify-content: space-between
+  padding: 10px 20px
+
+  @media #{$mobile}
+    background: White
+    padding: 0 10px
+    position: fixed
+    top: 0px
+    width: 100%
+    z-index: 100
+
+    a.logo
+      width: 150px
+
+      img
+        width: 100%
+
+  .safe-checkout-message
+    color: $gray-dark
+    font-size: 13px
+    font-weight: 700
+    letter-spacing: 1px
+    text-transform: uppercase
+
+    @media #{$mobile}
+      font-size: 11px
+      letter-spacing: .5px
+      margin-right: 20px

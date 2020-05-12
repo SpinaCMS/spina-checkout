@@ -1,0 +1,13 @@
+.hide-mobile
+  @media #{$mobile}
+    display: none !important
+
+.show-mobile
+  display: none
+
+  @media #{$mobile}
+    display: block !important
+
+.hide-desktop
+  @media only screen and (min-width: 769px)
+    display: none !important

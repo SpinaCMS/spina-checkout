@@ -1,2 +1,4 @@
-//= link_directory ../javascripts/spina/checkout .js
-//= link_directory ../stylesheets/spina/checkout .css
+//= link spina/checkout/application.js
+//= link spina/checkout/application.sass
+
+//= link_tree ../images/spina/checkout

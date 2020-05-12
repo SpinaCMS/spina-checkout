@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %title Checkout
+
+    = stylesheet_link_tag "spina/checkout/application", data: {turbolinks_track: true}
+    = javascript_include_tag 'spina/checkout/application', data: {turbolinks_track: true}
+
+    = csrf_meta_tags
+
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0, user-scalable=0'}
+    
+  %body
+    = render 'spina/checkout/shared/header'
+
+    = render 'spina/checkout/shared/navigation'
+
+    = yield
