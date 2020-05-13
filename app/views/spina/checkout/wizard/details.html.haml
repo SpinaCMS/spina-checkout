@@ -6,7 +6,40 @@
       = render partial: 'spina/checkout/shared/notifications'
 
       .form-group
-        .input-wrapper{data: {label: Spina::Shop::Order.human_attribute_name(:email), controller: "input"}}
-          = f.text_field :email, data: {target: "input.field", action: "keyup->input#placeholder change->input#placeholder"}
+        = checkout_field(f, :email, target: "details.email", required: "email")
+
+      %div{data: {target: "details.address"}}
+        %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
+
+        .form-group
+          = checkout_field(f, :first_name, required: true)
+          = checkout_field(f, :last_name, required: true)
+
+        / Address fields
+        = render partial: 'address_fields', locals: {f: f, address_type: "billing"}
+
+      %div
+        %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.delivery_address"
+        .form-group
+          .button-group
+            %label.form-label.button.button-white.button-small
+              = f.radio_button :separate_delivery_address, false, data: {action: 'details#toggleSeparateDeliveryAddress'}
+              =t 'spina.checkout.delivery_address_same_as_billing_address'
+
+            %label.form-label.button.button-white.button-small
+              = f.radio_button :separate_delivery_address, true, data: {action: 'details#toggleSeparateDeliveryAddress', target: 'details.separateDeliveryAddress'}
+              = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
+
+        = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
+
+      %h2.heading-2{style: "margin-top: 30px"}=t 'spina.checkout.date_of_birth'
+      .text-muted=t 'spina.checkout.date_of_birth_explanation'
+
+      .form-group= checkout_field(f, :date_of_birth, required: true, date: true)
+
+      .form-group.hide-mobile{style: "margin-top: 30px"}
+        = link_to wizard_path('shopping_cart'), class: 'button button-link checkout-back-link', style: 'padding-left: 0' do
+          %i.icon.icon-arrow-left
+          %span=t 'spina.checkout.back'
 
     .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

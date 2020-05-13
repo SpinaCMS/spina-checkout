@@ -6,11 +6,44 @@ module Spina
         image_tag("spina/checkout/loading.gif", width: 24)
       end
 
-      def checkout_field(form_builder, name, value: nil, size: 'default', target: nil, action: nil, required: false, date: false, disable_autocomplete: false, password: false, disabled: false)
-        value = value || form_builder.object.send(name)
-        content_tag(:div, class: "input-wrapper input-wrapper-#{size} #{'focused' if value.present?}", data: {label: form_builder.object.class.human_attribute_name(name), controller: "input #{'date' if date}"}) do
-          value = l(value, format: '%d/%m/%Y') if date && value.present?
-          form_builder.text_field(name, type: password ? "password" : "text", value: value, autocomplete: (disable_autocomplete ? 'off' : nil), disabled: disabled, data: {target: "#{target} #{'validate.required' if required} input.field #{'date.field' if date}", action: "#{action} keyup->input#placeholder change->input#placeholder #{'blur->validate#validateField' if required} #{'date#change' if date}", validate: required})
+      def checkout_field(form_builder, name, options = {})
+        value = options[:value] || form_builder.object.send(name)
+        type = options[:type] || "text"
+
+        # .input-wrapper classes
+        input_wrapper_classes = ["input-wrapper"]
+        input_wrapper_classes << "input-wrapper-#{options[:size]}" if options[:size].present?
+        input_wrapper_classes << "focused" if value.present?
+        input_wrapper_class = input_wrapper_classes.join(" ")
+
+        # .input-wrapper data attribute
+        data_attribute = {
+          label: form_builder.object.class.human_attribute_name(name),
+          controller: "input"
+        }
+
+        # Checkout field wrapped in .input-wrapper div
+        content_tag(:div, class: input_wrapper_class, data: data_attribute) do
+          targets = ["input.field"]
+          targets << "validate.required" if options[:required]
+          targets << "date.field" if options[:date]
+          targets << options[:target] if options[:target]
+
+          actions = ["keyup->input#placeholder", "change->input#placeholder"]
+          actions << "blur->validate#validateField" if options[:required]
+          actions << "date#change" if options[:date]
+          actions << options[:action] if options[:action]
+
+          form_builder.text_field(name, 
+            type: type, 
+            value: value,
+            disabled: options[:disabled],
+            data: {
+              target: targets.join(" "),
+              action: actions.join(" "),
+              validate: options[:required]
+            }
+          )
         end
       end
 
