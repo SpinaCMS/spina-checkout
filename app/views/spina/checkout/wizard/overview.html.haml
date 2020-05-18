@@ -2,9 +2,59 @@
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
     .main-content{data: {controller: "checkout-shopping-cart"}}
       %h2.heading-2=t 'spina.checkout.overview'
+      
+      - if current_order.confirming?
+        Betaling mislukt, probeer opnieuw!
 
       = render partial: 'spina/checkout/shared/notifications'
 
-      Overview
+      .checkout-overview
+        .checkout-overview-column
+          %h3.heading-3
+            - if current_order.requires_shipping?
+              = Spina::Shop::Order.human_attribute_name(:delivery_address)
+            - else
+              =t "spina.checkout.overview_pickup"
+          
+          .checkout-overview-address
+            - if current_order.requires_shipping?
+              = current_order.delivery_name
+              %br/
+              = current_order.delivery_address
+              %br/
+              = [current_order.delivery_postal_code, current_order.delivery_city].join(", ")
+              (#{current_order.delivery_country&.code})
+              
+          = link_to t('spina.checkout.edit'), wizard_path('details') if current_order.building?
+          
+          .checkout-overview-partner
+            %h4.heading-3
+              - if current_order.requires_shipping?
+                =t "spina.checkout.overview_delivery"
+              - else
+                =t "spina.checkout.overview_pickup"
+                
+            =t "delivery_options.#{current_order.delivery_option.name.parameterize}.name"
+            
+        .checkout-overview-column
+          %h3.heading-3=t 'spina.checkout.billing_address'
+          
+          .checkout-overview-address
+            = current_order.billing_name
+            %br/
+            = current_order.billing_address
+            %br/
+            #{current_order.billing_postal_code}, #{current_order.billing_city} (#{current_order.billing_country.code})
+
+          = link_to t('spina.checkout.edit'), wizard_path('details') if current_order.building?
+          
+          .checkout-overview-partner
+            %h4.heading-3=t 'spina.checkout.payment'
+            =t "payment_methods.#{current_order.payment_method.parameterize}.name"
+            
+      - if current_order.building?
+        = link_to wizard_path('payment'), class: 'button button-link checkout-back-link', style: 'padding-left: 0' do
+          %i.icon.icon-arrow-left
+          %span=t 'spina.checkout.back'
 
     .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

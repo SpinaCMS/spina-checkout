@@ -2,6 +2,8 @@ nl:
   spina:
     checkout:
       are_you_sure: Weet je het zeker?
+      
+      back: Terug
 
       back_to_cart: Terug naar winkelmand
       back_to_delivery: Terug naar verzending
@@ -16,6 +18,8 @@ nl:
       delete_order_item: Verwijderen
 
       edit_order: Bestelling bewerken
+      
+      free: Gratis
 
       overview: Overzicht
       order_not_yet_received: De bestelling is nog niet bevestigd.
@@ -37,6 +41,7 @@ nl:
 
       reference: Referentie
       optional: (optioneel)
+      overview_delivery: Bezorging
 
       steps:
         shopping_cart: Winkelmand

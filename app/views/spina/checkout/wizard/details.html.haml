@@ -29,7 +29,11 @@
             %label.form-label.button.button-white.button-small
               = f.radio_button :separate_delivery_address, true, data: {action: 'details#toggleSeparateDeliveryAddress', target: 'details.separateDeliveryAddress'}
               = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
-
+        
+        .form-group
+          = checkout_field(f, :delivery_first_name, required: true)
+          = checkout_field(f, :delivery_last_name, required: true)
+          
         = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
 
       %h2.heading-2{style: "margin-top: 30px"}=t 'spina.checkout.date_of_birth'

@@ -3,9 +3,9 @@
   .pull-right= number_to_currency current_order.order_total_without_discount
 
   - if current_order.prices_include_tax?
-    =t 'spina.checkout.subtotal'
+    = Spina::Shop::Order.human_attribute_name(:sub_total)
   - else
-    =t 'spina.checkout.subtotal_excl_tax'
+    = Spina::Shop::Order.human_attribute_name(:sub_total_excl_tax)
 
 / Discount
 - if current_order.discount.present?
@@ -24,7 +24,7 @@
         %strong.text-success=t 'spina.checkout.free'
       - else
         = number_to_currency current_order.delivery_price
-    =t 'spina.checkout.delivery_costs'
+    = Spina::Shop::Order.human_attribute_name(:delivery_price)
 
 / Tax (only if order doesn't include tax)
 - if !current_order.prices_include_tax?
@@ -41,7 +41,7 @@
 / Total
 .sidebar-summary-line{class: ('sidebar-summary-line-big' unless current_order.gift_cards.any?)}
   .pull-right= number_to_currency current_order.total
-  =t 'spina.checkout.total'
+  = Spina::Shop::Order.human_attribute_name(:total)
 
 / Gift cards
 - if current_order.gift_cards.any?

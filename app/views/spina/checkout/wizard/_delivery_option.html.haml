@@ -1,0 +1,8 @@
+- if lookup_context.exists? "spina/checkout/delivery_options/_#{delivery_option.name}"
+  = render partial: "spina/checkout/delivery_options/#{delivery_option.name}", locals: {f: f, delivery_option: delivery_option}
+- else
+  = render partial: "spina/checkout/delivery_options/default", locals: {f: f, delivery_option: delivery_option}
+
+
+
+

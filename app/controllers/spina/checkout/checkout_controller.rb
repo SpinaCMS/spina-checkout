@@ -1,6 +1,8 @@
 module Spina
   module Checkout
     class CheckoutController < ActionController::Base
+      layout 'spina/checkout/checkout'
+      
       protect_from_forgery with: :exception
 
       private

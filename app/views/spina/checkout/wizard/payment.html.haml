@@ -2,7 +2,11 @@
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
     .main-content{data: {controller: "checkout-shopping-cart"}}
       %h2.heading-2=t 'spina.checkout.payment'
+      
+      = render partial: 'spina/checkout/shared/notifications'
 
-      Payment
+      .form-group
+        .form-options              
+          = render partial: "payment_method", collection: current_order.payment_methods, locals: {f: f}
 
     .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

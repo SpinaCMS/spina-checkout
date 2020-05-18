@@ -1,0 +1,4 @@
+- if lookup_context.exists? "spina/checkout/payment_methods/_#{payment_method}"
+  = render partial: "spina/checkout/payment_methods/#{payment_method}", locals: {f: f, payment_method: payment_method}
+- else
+  = render partial: "spina/checkout/payment_methods/default", locals: {f: f, payment_method: payment_method}

@@ -1,0 +1,11 @@
+= f.label :delivery_option_id, class: 'form-option' do
+  = f.radio_button :delivery_option_id, delivery_option.id
+  .form-option-container
+    .form-option-image
+    .form-option-description
+      %strong= t "delivery_options.#{delivery_option.name.parameterize}.name"
+      %small=t "delivery_options.#{delivery_option.name.parameterize}.description"
+    .form-option-button
+      = button_tag type: :submit, class: 'button button-primary' do
+        =t "spina.checkout.next"
+        %i.icon.icon-arrow-right

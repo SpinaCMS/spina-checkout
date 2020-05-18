@@ -2,7 +2,16 @@
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
     .main-content{data: {controller: "checkout-shopping-cart"}}
       %h2.heading-2=t 'spina.checkout.delivery'
+      
+      = render partial: 'spina/checkout/shared/notifications'
 
-      Delivery
+      .form-group
+        .form-options
+          = render partial: 'delivery_option', collection: current_order.delivery_options, locals: {f: f}
+
+      .form-group{style: "margin-top: 30px"}
+        = link_to wizard_path('details'), class: 'button button-link checkout-back-link', style: 'padding-left: 0' do
+          %i.icon.icon-arrow-left
+          %span=t 'checkout.back'
 
     .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

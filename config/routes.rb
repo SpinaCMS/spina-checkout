@@ -1,6 +1,9 @@
 Spina::Checkout::Engine.routes.draw do
 
   resources :wizard, path: '/'
+  
+  get :waiting, to: 'wizard#waiting'
+  get :success, to: 'wizard#success'
 
   resources :order_items
 

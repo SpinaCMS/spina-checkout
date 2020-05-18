@@ -1,0 +1,11 @@
+= f.label :payment_method, value: payment_method, class: 'form-option' do
+  = f.radio_button :payment_method, payment_method
+  .form-option-container
+    .form-option-image
+    .form-option-description
+      %strong=t "payment_methods.#{payment_method}.name"
+      %small=t "payment_methods.#{payment_method}.description"
+    .form-option-button
+      = button_tag type: :submit, class: "button button-primary" do
+        =t "spina.checkout.next"
+        %i.icon.icon-arrow-right
