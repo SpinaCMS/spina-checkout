@@ -13,6 +13,4 @@
   %body
     = render 'spina/checkout/shared/header'
 
-    = render 'spina/checkout/shared/navigation'
-
-    = yield
+    = content_for?(:application) ? yield(:application) : yield

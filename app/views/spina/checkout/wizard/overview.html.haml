@@ -4,7 +4,8 @@
       %h2.heading-2=t 'spina.checkout.overview'
       
       - if current_order.confirming?
-        Betaling mislukt, probeer opnieuw!
+        Betaling nog niet afgerond, probeer opnieuw of pas de bestelling aan.
+        = link_to 'Bestelling aanpassen', cancel_and_duplicate_path, data: {method: :post}
 
       = render partial: 'spina/checkout/shared/notifications'
 

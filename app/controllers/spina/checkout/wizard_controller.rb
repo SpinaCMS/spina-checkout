@@ -3,41 +3,28 @@ module Spina
     class WizardController < CheckoutController
       include Wicked::Wizard
       
+      before_action :redirect_to_overview
       before_action :redirect_to_root
       before_action :set_defaults
 
       steps :shopping_cart, :details, :delivery, :payment, :overview
 
       def show
-        if current_order.building? || step == :overview
-          render_wizard
-        else
-          redirect_to wizard_path(:overview)
-        end
+        render_wizard
       end
 
       def update
-        if current_order.confirmed?
-          redirect_to current_order.payment_url and return
-        end
-        
         prepare_validation!
         
         case step
         when :details, :delivery, :payment
           current_order.assign_attributes(order_params)
         when :overview
-          if current_order.transition_to(:confirming, transition_metadata)
-            redirect_to current_order.payment_url and return
-          else
-            redirect_to wizard_path(:shopping_cart) and return
-          end
+          current_order.transition_to!(:confirming, transition_metadata)
+          redirect_to current_order.payment_url and return
         end
         
         render_wizard current_order
-      end
-      
-      def success
       end
 
       private
@@ -68,6 +55,13 @@ module Spina
         
         def payment_params
           params.require(:order).permit(:payment_method, :payment_issuer)
+        end
+        
+        # If the order is already confirming, redirect to the overview page (unless already there)
+        def redirect_to_overview
+          if current_order.confirming?
+            redirect_to wizard_path(:overview) and return unless step == :overview
+          end
         end
         
         def redirect_to_root

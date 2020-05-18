@@ -1,0 +1,6 @@
+- content_for :application do
+  = render 'spina/checkout/shared/navigation'
+
+  = yield
+  
+= render template: 'layouts/spina/checkout/checkout'

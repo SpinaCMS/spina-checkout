@@ -1,10 +1,10 @@
 Spina::Checkout::Engine.routes.draw do
 
-  resources :wizard, path: '/'
-  
-  get :waiting, to: 'wizard#waiting'
-  get :success, to: 'wizard#success'
+  resources :success, controller: "success", only: [:show]
 
+  resources :wizard, path: '/'
+
+  resource :cancel_and_duplicate, controller: "cancel_and_duplicate"
   resources :order_items
 
   # Sidebar specific controllers

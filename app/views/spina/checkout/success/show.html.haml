@@ -1,0 +1,6 @@
+- if @order.paid?
+  Bestelling is betaald 👍
+- else
+  Betaling is nog niet binnen. 
+  Wel betaald? Het kan zijn dat het iets langer duurt voordat het binnen is bij ons. 
+  = link_to 'Klik hier om nog een keer te checken', success_path(params[:id])

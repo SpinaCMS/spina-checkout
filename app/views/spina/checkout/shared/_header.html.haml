@@ -1,7 +1,7 @@
 %header#primary
   = link_to '/', class: 'logo', data: {turbolinks: false} do
-    Logo
-
+    = image_tag "spina/checkout/logo.svg", style: "max-height: 40px; max-width: 300px"
+    
   .safe-checkout-message
     %i.icon.icon-tick
-    =t 'checkout.safe_checkout'
+    =t 'spina.checkout.safe_checkout'
