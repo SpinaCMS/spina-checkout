@@ -41,7 +41,8 @@ module Spina
           actions << "date#change" if options[:date]
           actions << options[:action] if options[:action]
           
-          value = options[:date] ? I18n.l(value) : value
+          # Convert to formatted date
+          value = I18n.l(value) if options[:date] && value.present?
 
           form_builder.text_field(name, 
             type: type, 
