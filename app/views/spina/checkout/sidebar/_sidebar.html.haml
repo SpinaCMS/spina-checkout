@@ -4,7 +4,7 @@
   - else
     .sidebar-title
       =t 'spina.checkout.products', count: current_order.order_items.sum(:quantity)
-      = link_to t('checkout.edit'), wizard_path(:shopping_cart) if current_order.building?
+      = link_to t('spina.checkout.edit'), wizard_path(:shopping_cart) if current_order.building?
 
     .sidebar-products
       .sidebar-products-list
@@ -22,9 +22,9 @@
 
     - if current_order.confirming?
       = link_to current_order.payment_url, class: "button button-primary button-large", style: "margin-top: 20px", data: {disable: "..."} do
-        Betalen pannenkoek
+        =t "spina.checkout.pay_order"
     - else
-      = button_tag t('spina.checkout.pay_order'), type: :submit, class: 'button button-primary button-large', style: "margin-top: 20px", data: {disable: "..."}
+      = button_tag t('spina.checkout.confirm_order'), type: :submit, class: 'button button-primary button-large', style: "margin-top: 20px", data: {disable: "..."}
 
   - else
     = button_tag type: :submit, class: 'button button-primary button-large', style: "margin-top: 20px", data: {disable_with: "..."} do

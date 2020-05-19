@@ -2,17 +2,8 @@
 $font-family: "Metropolis", sans-serif
 
 // Colors
-$orange: #dd653f
-$orange-dark: #994831
-$orange-darker: #974835
-$beige: #d6d0bd
-$green: #6aa55d
-$green-light: #7bc731
-$green-lighter: #CFE6C5
-$green-dark: #588345
+$green: #78a365
 $red: #dc5959
-$yellow: #ffa200
-$yellow-light: #f3c068
 
 $gray-darkest: #282828
 $gray-darker: #393939
@@ -22,14 +13,12 @@ $gray-light: #cdcdcd
 $gray-lighter: #e7e7e7
 $gray-lightest: #f6f6f6
 
-$blue-light: #3DB2D6
-$blue-dark: #0B1F29
-$brand-green: #ACC51D
-
 // Keyword colors
-$brand: $orange
-$brand-transparent: #dd653f22
-$brand-dark: $orange-dark
+$brand: <%= Spina::Checkout.config.brand_color %>
+$brand-dark: <%= Spina::Checkout.config.brand_dark_color %>
+
+$button: <%= Spina::Checkout.config.button_color %>
+$button-hover: <%= Spina::Checkout.config.button_hover_color %>
 
 // Responsive breakpoints
 $mobile: "only screen and (max-width: 768px)"
