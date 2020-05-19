@@ -40,6 +40,8 @@ module Spina
           actions << "blur->validate#validateField" if options[:required]
           actions << "date#change" if options[:date]
           actions << options[:action] if options[:action]
+          
+          value = options[:date] ? I18n.l(value) : value
 
           form_builder.text_field(name, 
             type: type, 
