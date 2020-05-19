@@ -131,6 +131,9 @@ label.form-label
     top: 18px
     transition: transform .2s ease, font-size .2s ease
     z-index: 0
+    
+  &.input-small[data-label]:before
+    top: 15px
 
   &.focused
     input[type="text"],
@@ -164,16 +167,6 @@ label.form-label
   position: relative
   width: 100%
 
-  &:before
-    color: $gray-dark
-    font-size: 13px
-    font-weight: normal
-    line-height: 28px
-    position: absolute
-    right: 14px
-    top: 11px
-    z-index: 1
-
   select
     appearance: none
     background-color: transparent
@@ -200,12 +193,9 @@ label.form-label
   &.form-dropdown-small
     height: 41px
 
-    &:before
-      top: 7px
-
     select
       font-size: 15px
-      padding: 18px 42px 7px 14px
+      padding: 19px 42px 6px 14px
 
 // Form options
 .form-options
