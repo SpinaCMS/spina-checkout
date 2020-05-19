@@ -1,7 +1,7 @@
 .overflow-container
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
     .main-content{data: {controller: "checkout-shopping-cart"}}
-      %h2.heading-2=t 'spina.checkout.details'
+      %h2.heading-2=t 'spina.checkout.steps.details'
 
       = render partial: 'spina/checkout/shared/notifications'
 
@@ -36,8 +36,7 @@
           
         = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
 
-      %h2.heading-2{style: "margin-top: 30px"}=t 'spina.checkout.date_of_birth'
-      .text-muted=t 'spina.checkout.date_of_birth_explanation'
+      %h2.heading-2{style: "margin-top: 30px"}= Spina::Shop::Order.human_attribute_name(:date_of_birth)
 
       .form-group= checkout_field(f, :date_of_birth, required: true, date: true)
 

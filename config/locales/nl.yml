@@ -39,6 +39,9 @@ nl:
       choose_country: Kies land
       choose_delivery: Kies verzendmethode
       choose_payment: Kies betalingsmethode
+      
+      delivery_address: Afleveradres
+      delivery_address_same_as_billing_address: Gelijk aan factuuradres
 
       delivery_method: Verzendmethode
       payment_method: Betalingsmethode

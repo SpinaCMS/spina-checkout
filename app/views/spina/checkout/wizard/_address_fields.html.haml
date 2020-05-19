@@ -9,6 +9,6 @@
     = checkout_field(f, "#{address_type}_city", required: true)
 
   .form-group
-    .input-wrapper.focused{data: {label: Spina::Shop::Country.model_name.human}}
+    .input-wrapper.focused{data: {label: Spina::Shop::Order.human_attribute_name("#{address_type}_country")}}
       .form-dropdown
         = f.select "#{address_type}_country_id", Spina::Shop::Country.pluck(:name, :id), {}, data: {target: 'validate.country'}
