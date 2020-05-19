@@ -2,10 +2,10 @@ Spina::Checkout::Engine.routes.draw do
 
   resources :success, controller: "success", only: [:show]
 
-  resources :wizard, path: '/'
-
   resource :cancel_and_duplicate, controller: "cancel_and_duplicate"
   resources :order_items
+  
+  resource :delivery_date, controller: "delivery_date"
 
   # Sidebar specific controllers
   namespace :sidebar do
@@ -13,5 +13,7 @@ Spina::Checkout::Engine.routes.draw do
     resource :discount
     resources :order_items
   end
-
+  
+  # Wizard (route with least priority)
+  resources :wizard, path: '/'
 end

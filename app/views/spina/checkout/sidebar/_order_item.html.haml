@@ -1,5 +1,4 @@
 .sidebar-product{data: {quantity: order_item.quantity}}
-  .sidebar-product-image
-    = image_tag main_app.url_for(order_item.orderable&.root.product_images.first&.file&.variant(resize: '100x100')), style: 'height: 100%; width: auto'
+  .sidebar-product-image= product_image_tag order_item.orderable, {resize: '160x160'}
   .sidebar-product-name= order_item.orderable.full_name
   .sidebar-product-price= number_to_currency order_item.total

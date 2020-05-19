@@ -5,6 +5,13 @@ module Spina
       def loading_gif
         image_tag("spina/checkout/loading.gif", width: 24)
       end
+      
+      def product_image_tag(orderable, variant_options = {}, html_options = {})
+        image = get_first_product_image(orderable)
+        if image && image.file.attached?
+          image_tag main_app.url_for(image.file.variant(variant_options)), html_options
+        end
+      end
 
       def checkout_field(form_builder, name, options = {})
         value = options[:value] || form_builder.object.send(name)
@@ -46,6 +53,16 @@ module Spina
           )
         end
       end
+      
+      private
+      
+        def get_first_product_image(orderable)
+          image = orderable.product_images.first
+          if image.nil? && orderable.is_a?(Spina::Shop::Product)
+            image = orderable.children.joins(:product_images).first&.product_images&.first || product.root.product_images.first
+          end
+          image
+        end
 
     end
   end

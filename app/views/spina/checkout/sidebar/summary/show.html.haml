@@ -56,6 +56,6 @@
 - if current_order.requires_shipping?
   / Delivery date if the order is shipped
   .sidebar-delivery
-    .sidebar-summary-line
-      .pull-right
-      =t 'spina.checkout.expected_delivery'
+    .sidebar-summary-line{data: {controller: 'delivery-date', delivery_date_url: delivery_date_path}}
+      .pull-right{data: {target: 'delivery-date.date'}}
+      = Spina::Shop::Order.human_attribute_name(:expected_delivery)

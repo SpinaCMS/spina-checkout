@@ -1,6 +1,6 @@
 .shopping-cart-item
-  .shopping-cart-item-image
-    = image_tag main_app.url_for(order_item.orderable.product_images.first&.file.variant(resize: '100x100')), style: 'height: 100%; width: auto; margin: 0 auto'
+  .shopping-cart-item-image= product_image_tag order_item.orderable, {resize: '160x160'}
+    
   .shopping-cart-item-name
     = link_to order_item.orderable.root.materialized_path, data: {turbolinks: false} do
       = order_item.orderable.name

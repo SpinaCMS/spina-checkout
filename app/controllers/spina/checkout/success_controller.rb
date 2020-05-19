@@ -1,6 +1,6 @@
 module Spina
   module Checkout
-    class SuccessController < CheckoutController
+    class SuccessController < CheckoutController      
       before_action :set_order
     
       def show

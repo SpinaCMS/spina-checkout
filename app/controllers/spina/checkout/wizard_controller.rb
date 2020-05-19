@@ -3,8 +3,10 @@ module Spina
     class WizardController < CheckoutController
       include Wicked::Wizard
       
-      before_action :redirect_to_overview
+      layout 'spina/checkout/wizard'
+      
       before_action :redirect_to_root
+      before_action :redirect_to_overview
       before_action :set_defaults
 
       steps :shopping_cart, :details, :delivery, :payment, :overview
@@ -57,15 +59,15 @@ module Spina
           params.require(:order).permit(:payment_method, :payment_issuer)
         end
         
+        def redirect_to_root
+          redirect_to '/' and return unless current_order
+        end
+        
         # If the order is already confirming, redirect to the overview page (unless already there)
         def redirect_to_overview
           if current_order.confirming?
             redirect_to wizard_path(:overview) and return unless step == :overview
           end
-        end
-        
-        def redirect_to_root
-          redirect_to '/' and return unless current_order
         end
 
         def set_defaults
