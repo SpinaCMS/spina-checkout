@@ -1,6 +1,6 @@
 .overflow-container
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
-    .main-content{data: {controller: "checkout-shopping-cart"}}
+    .main-content{data: {controller: "details"}}
       %h2.heading-2=t 'spina.checkout.steps.details'
 
       = render partial: 'spina/checkout/shared/notifications'
@@ -8,15 +8,14 @@
       .form-group
         = checkout_field(f, :email, target: "details.email", required: "email")
 
-      %div{data: {target: "details.address"}}
-        %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
+      %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
 
-        .form-group
-          = checkout_field(f, :first_name, required: true)
-          = checkout_field(f, :last_name, required: true)
+      .form-group
+        = checkout_field(f, :first_name, required: true)
+        = checkout_field(f, :last_name, required: true)
 
-        / Address fields
-        = render partial: 'address_fields', locals: {f: f, address_type: "billing"}
+      / Address fields
+      = render partial: 'address_fields', locals: {f: f, address_type: "billing"}
 
       %div
         %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.delivery_address"
@@ -30,11 +29,12 @@
               = f.radio_button :separate_delivery_address, true, data: {action: 'details#toggleSeparateDeliveryAddress', target: 'details.separateDeliveryAddress'}
               = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
         
-        .form-group
-          = checkout_field(f, :delivery_first_name, required: true)
-          = checkout_field(f, :delivery_last_name, required: true)
-          
-        = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
+        %div{data: {target: "details.deliveryAddress"}}
+          .form-group
+            = checkout_field(f, :delivery_first_name, required: true)
+            = checkout_field(f, :delivery_last_name, required: true)
+            
+          = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
 
       %h2.heading-2{style: "margin-top: 30px"}= Spina::Shop::Order.human_attribute_name(:date_of_birth)
 
