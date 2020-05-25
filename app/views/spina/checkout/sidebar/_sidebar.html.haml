@@ -17,8 +17,9 @@
     = render partial: 'spina/checkout/sidebar/summary/blank_state'
 
   - if @step == :overview
-    .sidebar-terms-and-conditions
-      =t 'spina.checkout.terms_and_conditions_html', link: '#'
+    - if Spina::Checkout.config.terms_and_conditions_path.present?
+      .sidebar-terms-and-conditions
+        =t 'spina.checkout.terms_and_conditions_html', link: Spina::Checkout.config.terms_and_conditions_path, target: :blank
 
     - if current_order.confirming?
       = link_to current_order.payment_url, class: "button button-primary button-large", style: "margin-top: 20px", data: {disable: "..."} do
