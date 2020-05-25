@@ -64,7 +64,7 @@
 
 .form-group{data: {controller: "codes", url: codes_path}}
   .input-wrapper{style: 'background: rgba(255, 255, 255, .75)'}
-    = text_field_tag :code, nil, class: 'input-small', placeholder: "Cadeaubon of kortingscode", data: {target: "codes.input"}
+    = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? "Cadeaubon" : "Cadeaubon of kortingscode"), data: {target: "codes.input"}
 
   = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 26px; display: flex; align-items: center", data: {action: "codes#addCode sidebar-summary#fetchSummary"} do
     +
