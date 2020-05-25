@@ -1,0 +1,19 @@
+.modal{data: {controller: "modal", action: "click->modal#close keyup@document->modal#escClose"}}
+  .modal-window{data: {action: "click->modal#stopPropagation"}}
+    = button_tag class: 'button modal-close', data: {action: "modal#close"} do
+      .button-content
+        %i.icon.icon-times
+
+    .modal-header{style: "margin-bottom: 20px"}
+      %h1.heading-1=t 'spina.checkout.gift_cards.heading'
+      .page-content=t 'spina.checkout.gift_cards.subtitle'
+
+    = form_with url: gift_cards_path, local: true do |f|
+      .form-group
+        .input-wrapper.focused{data: {controller: "input", label: Spina::Shop::GiftCard.human_attribute_name(:code)}}
+          = f.text_field :code, data: {target: "input.field modal.firstInput", action: "keyup->input#placeholder change->input#placeholder"}
+
+      = button_tag type: :submit, class: 'button button-primary button-block' do
+        .button-content
+          =t 'spina.checkout.gift_cards.add'
+          %i.icon.icon-arrow-right{style: "margin-left: 8px"}

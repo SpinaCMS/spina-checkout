@@ -1,6 +1,9 @@
 nl:
   spina:
     checkout:
+      add_discount: Kortingscode
+      add_gift_card: Cadeaukaart
+      
       are_you_sure: Weet je het zeker?
       
       back: Terug

@@ -15,5 +15,11 @@
         }.bind(this))
     }
 
+    fetchSummaryDelayed() {
+      setTimeout(function() {
+        this.fetchSummary()
+      }.bind(this), 100)
+    }
+
   })
 })()
