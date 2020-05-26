@@ -22,10 +22,10 @@
         =t 'spina.checkout.terms_and_conditions_html', link: Spina::Checkout.config.terms_and_conditions_path, target: :blank
 
     - if current_order.confirming?
-      = link_to current_order.payment_url, class: "button button-primary button-large", style: "margin-top: 20px", data: {disable: "..."} do
+      = link_to current_order.payment_url, class: "button button-brand button-large", style: "margin-top: 20px", data: {disable: "..."} do
         =t "spina.checkout.pay_order"
     - else
-      = button_tag t('spina.checkout.confirm_order'), type: :submit, class: 'button button-primary button-large', style: "margin-top: 20px", data: {disable: "..."}
+      = button_tag t('spina.checkout.confirm_order'), type: :submit, class: 'button button-brand button-large', style: "margin-top: 20px", data: {disable: "..."}
 
   - else
     = button_tag type: :submit, class: 'button button-primary button-large', style: "margin-top: 20px", data: {disable_with: "..."} do
