@@ -17,11 +17,24 @@
         body: JSON.stringify({
           code: this.inputTarget.value
         })
-      })
+      }).then(function() {
+        this.sidebar.fetchSummary()
+      }.bind(this))
+    }
+
+    pressEnter(e) {      
+      if (e.keyCode == 13) {
+        e.preventDefault()  
+        this.addCode()
+      }
     }
 
     get token() {
       return document.querySelector('meta[name="csrf-token"]').content
+    }
+
+    get sidebar() {
+      return document.querySelector('.sidebar-summary').controller
     }
 
   })

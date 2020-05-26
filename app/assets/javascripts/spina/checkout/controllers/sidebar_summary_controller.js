@@ -4,6 +4,7 @@
   application.register("sidebar-summary", class extends Stimulus.Controller {
 
     connect() {
+      this.element["controller"] = this
       this.fetchSummary()
     }
 
@@ -13,12 +14,6 @@
         .then(function(html) {
           this.element.innerHTML = html
         }.bind(this))
-    }
-
-    fetchSummaryDelayed() {
-      setTimeout(function() {
-        this.fetchSummary()
-      }.bind(this), 100)
     }
 
   })

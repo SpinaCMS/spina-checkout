@@ -7,7 +7,7 @@ module Spina
         @gift_card = current_order.gift_cards.find(params[:id])
         current_order.gift_cards.delete(@gift_card)
         current_order.save
-        redirect_back fallback_location: wizard_path(:payment)
+        render js: "document.querySelector('.sidebar-summary').controller.fetchSummary()"
       end
 
       private

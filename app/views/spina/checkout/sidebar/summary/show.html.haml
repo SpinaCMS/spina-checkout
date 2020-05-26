@@ -13,7 +13,7 @@
     .pull-right= number_to_currency current_order.order_total - current_order.order_total_without_discount
     %span.text-success
       = current_order.discount.description
-      = link_to discount_path, class: 'button button-mini', data: {method: :delete, remote: true, action: 'sidebar-summary#fetchSummaryDelayed'} do
+      = link_to discount_path, class: 'button button-mini', data: {method: :delete, remote: true} do
         %i.icon.icon-bin
         x
 
@@ -51,7 +51,7 @@
       .sidebar-summary-line{style: 'width: auto; display: inline-block; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 0 8px'}
         %span.text-success= number_to_currency gift_card.value
         %span= gift_card.readable_code
-        = link_to gift_card_path(gift_card), class: 'button button-mini', data: {method: :delete, remote: true, action: 'sidebar-summary#fetchSummaryDelayed'} do
+        = link_to gift_card_path(gift_card), class: 'button button-mini', data: {method: :delete, remote: true} do
           %i.icon.icon-bin
           x
   %br/
@@ -64,9 +64,9 @@
 
 .form-group{data: {controller: "codes", url: codes_path}}
   .input-wrapper{style: 'background: rgba(255, 255, 255, .75)'}
-    = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? "Cadeaubon" : "Cadeaubon of kortingscode"), data: {target: "codes.input"}
+    = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? "Cadeaubon" : "Cadeaubon of kortingscode"), data: {target: "codes.input", action: "keydown->codes#pressEnter"}
 
-  = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 26px; display: flex; align-items: center", data: {action: "codes#addCode sidebar-summary#fetchSummary"} do
+  = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 26px; display: flex; align-items: center", data: {action: "codes#addCode"} do
     +
 
 - if current_order.requires_shipping?
