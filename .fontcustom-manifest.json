@@ -1,0 +1,65 @@
+{
+  "checksum": {
+    "previous": "e3a4e6b2414eb79d231f10b0937f81cc51af7e45f85a0f6e6423f12e2c30c319",
+    "current": "e3a4e6b2414eb79d231f10b0937f81cc51af7e45f85a0f6e6423f12e2c30c319"
+  },
+  "fonts": [
+    "app/assets/fonts/spina/checkout/icons.ttf",
+    "app/assets/fonts/spina/checkout/icons.svg",
+    "app/assets/fonts/spina/checkout/icons.woff",
+    "app/assets/fonts/spina/checkout/icons.eot",
+    "app/assets/fonts/spina/checkout/icons.woff2"
+  ],
+  "glyphs": {
+    "arrow-left": {
+      "codepoint": 61701,
+      "source": "app/assets/icons/spina/checkout/arrow-left.svg"
+    },
+    "arrow-right": {
+      "codepoint": 61700,
+      "source": "app/assets/icons/spina/checkout/arrow-right.svg"
+    },
+    "plus": {
+      "codepoint": 61697,
+      "source": "app/assets/icons/spina/checkout/plus.svg"
+    },
+    "trash": {
+      "codepoint": 61696,
+      "source": "app/assets/icons/spina/checkout/trash.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "config/fontcustom.yml",
+    "copyright": "",
+    "css3": false,
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 32,
+    "font_em": 512,
+    "font_name": "icons",
+    "force": true,
+    "input": {
+      "templates": "lib/fontcustom",
+      "vectors": "app/assets/icons/spina/checkout"
+    },
+    "no_hash": true,
+    "output": {
+      "css": "app/assets/stylesheets/spina/checkout",
+      "fonts": "app/assets/fonts/spina/checkout",
+      "preview": "app/assets/icons/spina/checkout/preview"
+    },
+    "preprocessor_path": null,
+    "quiet": false,
+    "templates": [
+      "_icons.scss",
+      "preview"
+    ]
+  },
+  "templates": [
+    "app/assets/stylesheets/spina/checkout/_icons.scss",
+    "app/assets/icons/spina/checkout/preview/icons-preview.html"
+  ]
+}

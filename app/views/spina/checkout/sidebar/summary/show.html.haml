@@ -14,8 +14,7 @@
     %span.text-success
       = current_order.discount.description
       = link_to discount_path, class: 'button button-mini', data: {method: :delete, remote: true} do
-        %i.icon.icon-bin
-        x
+        %i.icon.icon-trash
 
 / Delivery costs
 - if current_order.delivery_option.present?
@@ -51,8 +50,7 @@
         .pull-right= number_to_currency gift_card[:gift_card].remaining_balance * -1
         = Spina::Shop::GiftCard.model_name.human
         = link_to gift_card_path(gift_card[:gift_card]), class: 'button button-mini', data: {method: :delete, remote: true} do
-          %i.icon.icon-bin
-          x
+          %i.icon.icon-trash
 
   - else
     .sidebar-summary-line.text-success
@@ -66,7 +64,7 @@
 - if current_order.building?
   %div{style: "margin: 12px 0", data: {controller: "codes", url: codes_path}}
     = button_tag type: :button, class: 'button button-white button-mini', data: {action: "codes#showForm"} do
-      +
+      %i.icon.icon-plus
       - if current_order.discount.present?
         Cadeaubon
       - else
@@ -75,8 +73,8 @@
       .input-wrapper{style: 'background: rgba(255, 255, 255, .75)'}
         = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? "Cadeaubon" : "Cadeaubon of kortingscode"), data: {target: "codes.input", action: "keydown->codes#pressEnter"}
 
-      = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 26px; display: flex; align-items: center", data: {action: "codes#addCode"} do
-        +
+      = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 16px; display: flex; align-items: center", data: {action: "codes#addCode"} do
+        %i.icon.icon-plus
 
 - if current_order.requires_shipping?
   / Delivery date if the order is shipped

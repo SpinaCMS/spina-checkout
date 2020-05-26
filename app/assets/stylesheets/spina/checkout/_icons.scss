@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'icons';
+  font-style: normal;
+  font-weight: normal;
+  src: asset_url('spina/checkout/icons.woff') format('woff');
+}
+
+.icon {
+  display: inline-block;
+  font-family: 'icons' !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  line-height: inherit;
+  speak: none;
+  text-rendering: auto;
+  text-transform: none !important;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 
+// Icon Font: icons
+// 
+
+.icon-arrow-left:before { content: "\f105"; }
+.icon-arrow-right:before { content: "\f104"; }
+.icon-plus:before { content: "\f101"; }
+.icon-trash:before { content: "\f100"; }

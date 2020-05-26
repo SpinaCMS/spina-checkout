@@ -10,7 +10,7 @@
 
   .shopping-cart-item-action
     = link_to order_item_path(order_item), data: {method: :delete} do
-      %i.icon.icon-bin
+      %i.icon.icon-trash
 
   .shopping-cart-item-quantity
     = order_item.quantity

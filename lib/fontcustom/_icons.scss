@@ -1,0 +1,27 @@
+@font-face {
+  font-family: '<%= font_name %>';
+  font-style: normal;
+  font-weight: normal;
+  src: asset_url('spina/checkout/<%= font_name %>.woff') format('woff');
+}
+
+.icon {
+  display: inline-block;
+  font-family: '<%= font_name %>' !important;
+  font-style: normal !important;
+  font-variant: normal !important;
+  font-weight: normal !important;
+  line-height: inherit;
+  speak: none;
+  text-rendering: auto;
+  text-transform: none !important;
+  vertical-align: middle;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// 
+// Icon Font: <%= font_name %>
+// 
+
+<%= glyphs %>
