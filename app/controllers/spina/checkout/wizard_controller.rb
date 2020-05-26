@@ -21,12 +21,18 @@ module Spina
         case step
         when :details, :delivery, :payment
           current_order.assign_attributes(order_params)
+          additional_updates
         when :overview
           current_order.transition_to!(:confirming, transition_metadata)
           redirect_to current_order.payment_url and return
         end
         
         render_wizard current_order
+      end
+
+      def additional_updates
+        # Placeholder method
+        # Do some custom stuff in your main app if you want
       end
 
       private

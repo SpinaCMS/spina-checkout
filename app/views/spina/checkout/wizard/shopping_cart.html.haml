@@ -8,8 +8,7 @@
 
       = render partial: 'spina/checkout/shared/notifications'
 
-      .shopping-cart-item-list
-        = render partial: 'order_item', collection: current_order.order_items.order(:id)
+      .shopping-cart-item-list= render 'shopping_cart_list'
 
       %div{style: 'margin-top: 30px'}
         - if current_order.order_items.any?
