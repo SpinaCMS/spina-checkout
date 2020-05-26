@@ -43,6 +43,7 @@
   .pull-right= number_to_currency current_order.total
   = Spina::Shop::Order.human_attribute_name(:total)
 
+/ Gift cards
 - if current_order.gift_cards.any?
   - if current_order.building?
     - current_order.gift_card_usage_for_order.each do |gift_card|
@@ -61,20 +62,8 @@
     .pull-right= number_to_currency current_order.to_be_paid
     = Spina::Shop::Order.human_attribute_name(:to_be_paid)
 
-- if current_order.building?
-  %div{style: "margin: 12px 0", data: {controller: "codes", url: codes_path}}
-    = button_tag type: :button, class: 'button button-white button-mini', data: {action: "codes#showForm"} do
-      %i.icon.icon-plus
-      - if current_order.discount.present?
-        Cadeaubon
-      - else
-        Cadeaubon of kortingscode
-    .form-group{data: {target: "codes.form"}}
-      .input-wrapper{style: 'background: rgba(255, 255, 255, .75)'}
-        = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? "Cadeaubon" : "Cadeaubon of kortingscode"), data: {target: "codes.input", action: "keydown->codes#pressEnter"}
-
-      = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 16px; display: flex; align-items: center", data: {action: "codes#addCode"} do
-        %i.icon.icon-plus
+/ Codes form
+= render "codes_form" if current_order.building?
 
 - if current_order.requires_shipping?
   / Delivery date if the order is shipped
