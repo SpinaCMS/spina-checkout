@@ -9,11 +9,14 @@ module Spina
       def create
         if discount.present?
           current_order.update(discount: discount)
+          head :ok
         elsif gift_card && !current_order.gift_cards.include?(gift_card)
           current_order.gift_cards << gift_card
           current_order.save
+          head :ok
+        else
+          head :not_found
         end
-        redirect_back(fallback_location: wizard_path(:details))
       end
 
       private

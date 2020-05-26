@@ -21,8 +21,12 @@
         body: JSON.stringify({
           code: this.inputTarget.value
         })
-      }).then(function() {
-        this.sidebar.fetchSummary()
+      }).then(function(response) {
+        if (response.status == 200) {
+          this.sidebar.fetchSummary()
+        } else {
+          alert("Code ongeldig")
+        }
       }.bind(this))
     }
 
@@ -37,6 +41,7 @@
       let button = e.currentTarget
       button.parentElement.removeChild(button)
       this.formTarget.style.display = "flex"
+      this.inputTarget.focus()
     }
 
     get token() {
