@@ -1,14 +1,23 @@
 .overflow-container
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
     .main-content{data: {controller: "shopping-cart"}}
-      %h2.heading-2=t 'spina.checkout.shopping_cart'
+      - if current_order.order_items.any?
+        %h2.heading-2=t 'spina.checkout.shopping_cart'
+      - else
+        %h2.heading-2=t 'spina.checkout.empty_shopping_cart'
 
       = render partial: 'spina/checkout/shared/notifications'
 
       .shopping-cart-item-list
         = render partial: 'order_item', collection: current_order.order_items.order(:id)
 
-      .form-group{style: "margin-top: 30px"}
+      %div{style: 'margin-top: 30px'}
+        - if current_order.order_items.any?
+          .pull-right
+            = link_to empty_cart_path, class: 'button button-white button-mini', data: {method: :delete} do
+              %i.icon.icon-trash
+              = t("spina.checkout.empty_cart")
+
         = link_to '/', class: 'button button-link checkout-back-link', style: 'padding-left: 0', data: {turbolinks: false} do
           %i.icon.icon-arrow-left
           %span=t 'spina.checkout.back_to_webshop'

@@ -21,6 +21,8 @@ nl:
 
       delete_order_item: Verwijderen
 
+      empty_shopping_cart: Lege winkelmand
+      empty_cart: Winkelmand legen
       edit: Bewerken
       edit_order: Bestelling bewerken
       

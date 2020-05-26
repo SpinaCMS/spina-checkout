@@ -6,10 +6,6 @@
       return []
     }
 
-    connect() {
-
-    }
-
     setQuantity(order_item_url, quantity) {
       fetch(order_item_url, {
         method: 'PUT',
@@ -48,7 +44,7 @@
     }
 
     max(field) {
-      return parseInt(field.dataset.maximum)
+      return parseInt(field.dataset.maximum || 9999)
     }
 
     get sidebar() {

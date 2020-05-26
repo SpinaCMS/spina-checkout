@@ -8,6 +8,7 @@ Spina::Checkout::Engine.routes.draw do
 
   # Shopping cart
   resources :order_items
+  resource :empty_cart, controller: "empty_cart", only: [:destroy]
   
   # Delivery date
   resource :delivery_date, controller: "delivery_date"
