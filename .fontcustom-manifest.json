@@ -1,7 +1,7 @@
 {
   "checksum": {
-    "previous": "fc75fd43e2c43194f0ed14a1dc1ab5454af6ab27078586eb743586c24078d09b",
-    "current": "fc75fd43e2c43194f0ed14a1dc1ab5454af6ab27078586eb743586c24078d09b"
+    "previous": "b2cf0c4156a4acf06ba8e942cf589942c8a15b1cd6224dd6434d479bcba4e5e6",
+    "current": "b2cf0c4156a4acf06ba8e942cf589942c8a15b1cd6224dd6434d479bcba4e5e6"
   },
   "fonts": [
     "app/assets/fonts/spina/checkout/icons.ttf",
@@ -18,6 +18,10 @@
     "arrow-right": {
       "codepoint": 61700,
       "source": "app/assets/icons/spina/checkout/arrow-right.svg"
+    },
+    "check": {
+      "codepoint": 61703,
+      "source": "app/assets/icons/spina/checkout/check.svg"
     },
     "minus": {
       "codepoint": 61702,
