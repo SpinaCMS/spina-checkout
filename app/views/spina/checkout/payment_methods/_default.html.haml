@@ -2,9 +2,10 @@
   = f.radio_button :payment_method, payment_method
   .form-option-container
     .form-option-image
+      = image_tag "spina/checkout/payment_methods/#{payment_method.parameterize}.svg"
     .form-option-description
-      %strong=t "payment_methods.#{payment_method}.name"
-      %small=t "payment_methods.#{payment_method}.description"
+      %strong=t "payment_methods.#{payment_method.parameterize}.name"
+      %small=t "payment_methods.#{payment_method.parameterize}.description"
     .form-option-button
       = button_tag type: :submit, class: "button button-primary" do
         =t "spina.checkout.next"

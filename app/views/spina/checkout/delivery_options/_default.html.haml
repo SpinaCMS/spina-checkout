@@ -2,6 +2,7 @@
   = f.radio_button :delivery_option_id, delivery_option.id
   .form-option-container
     .form-option-image
+      = image_tag "spina/checkout/carriers/#{delivery_option.carrier.parameterize}.svg"
     .form-option-description
       %strong= t "delivery_options.#{delivery_option.name.parameterize}.name"
       %small=t "delivery_options.#{delivery_option.name.parameterize}.description"
