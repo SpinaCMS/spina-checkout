@@ -25,7 +25,7 @@
         if (response.status == 200) {
           this.sidebar.fetchSummary()
         } else {
-          alert("Code ongeldig")
+          this.inputTarget.value = ""
         }
       }.bind(this))
     }
