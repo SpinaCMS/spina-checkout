@@ -3,7 +3,11 @@
 
   application.register("codes", class extends Stimulus.Controller {
     static get targets() {
-      return ["input"]
+      return ["input", "form"]
+    }
+
+    connect() {
+      this.formTarget.style.display = "none"
     }
 
     addCode() {
@@ -27,6 +31,12 @@
         e.preventDefault()  
         this.addCode()
       }
+    }
+
+    showForm(e) {
+      let button = e.currentTarget
+      button.parentElement.removeChild(button)
+      this.formTarget.style.display = "flex"
     }
 
     get token() {
