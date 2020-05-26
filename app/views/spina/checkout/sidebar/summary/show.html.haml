@@ -48,8 +48,8 @@
   - if current_order.building?
     - current_order.gift_card_usage_for_order.each do |gift_card|
       .sidebar-summary-line.text-success
+        .pull-right= number_to_currency gift_card[:gift_card].remaining_balance * -1
         = Spina::Shop::GiftCard.model_name.human
-        = number_to_currency gift_card[:gift_card].remaining_balance
         = link_to gift_card_path(gift_card[:gift_card]), class: 'button button-mini', data: {method: :delete, remote: true} do
           %i.icon.icon-bin
           x
