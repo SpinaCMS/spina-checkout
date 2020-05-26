@@ -34,12 +34,15 @@
 - if current_order.gift_cards.any?
   .sidebar-summary-line.text-success
     %span.text-success
-      .pull-right= loading_gif
+      .pull-right{style: "position: absolute"}= loading_gif
       = Spina::Shop::GiftCard.model_name.human
 
   .sidebar-summary-line.sidebar-summary-line-big
     .pull-right= loading_gif
     = Spina::Shop::Order.human_attribute_name(:to_be_paid)
+
+/ Codes form
+= render partial: "spina/checkout/sidebar/summary/codes_form" if current_order.building?
 
 - if current_order.requires_shipping?
   / Delivery date if the order is shipped

@@ -1,11 +1,13 @@
 .shopping-cart-item
-  .shopping-cart-item-image= product_image_tag order_item.orderable, {resize: '160x160'}
+  .shopping-cart-item-image
+    = product_image_tag order_item.orderable, {resize: '160x160'}
     
   .shopping-cart-item-name
     = link_to order_item.orderable.root.materialized_path, data: {turbolinks: false} do
       = order_item.orderable.name
-      - if order_item.orderable.variant?
-        %small= order_item.orderable.variant_name
+      %small
+        - if order_item.orderable.variant?
+          = order_item.orderable.variant_name
       %strong= number_to_currency order_item.unit_price
 
   .shopping-cart-item-action
@@ -13,5 +15,10 @@
       %i.icon.icon-trash
 
   .shopping-cart-item-quantity
-    = order_item.quantity
-    &times;
+    .form-group
+      = button_tag type: :button, class: 'button button-outline button-small', data: {action: "shopping-cart#subtract"} do
+        %i.icon.icon-minus{style: "font-size: 13px"}
+      .input-wrapper
+        = text_field_tag :quantity, order_item.quantity, class: 'input-small', data: {target: "shopping-cart.quantity", action: "shopping-cart#addToCart", order_item_url: order_item_path(order_item), maximum: (order_item.orderable.stock_level if order_item.orderable&.stock_enabled?)}
+      = button_tag type: :button, class: 'button button-primary button-small', data: {action: "shopping-cart#add"} do
+        %i.icon.icon-plus

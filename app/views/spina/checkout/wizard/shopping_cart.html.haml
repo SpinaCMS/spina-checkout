@@ -1,11 +1,11 @@
 .overflow-container
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
-    .main-content{data: {controller: "checkout-shopping-cart"}}
+    .main-content{data: {controller: "shopping-cart"}}
       %h2.heading-2=t 'spina.checkout.shopping_cart'
 
       = render partial: 'spina/checkout/shared/notifications'
 
-      .shopping-cart-item-list{data: {target: "checkout-shopping-cart.cartItemList"}}
+      .shopping-cart-item-list
         = render partial: 'order_item', collection: current_order.order_items.order(:id)
 
       .form-group{style: "margin-top: 30px"}

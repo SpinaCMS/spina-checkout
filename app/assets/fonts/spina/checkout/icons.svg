@@ -5,7 +5,7 @@
 -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20170925 at Tue May 26 11:22:49 2020
+Created by FontForge 20170925 at Tue May 26 13:04:46 2020
  By Bram Jetten
 
 </metadata>
@@ -22,7 +22,7 @@ Created by FontForge 20170925 at Tue May 26 11:22:49 2020
     bbox="-0.050293 -64 448.05 448"
     underline-thickness="25.6"
     underline-position="-51.2"
-    unicode-range="U+0020-F105"
+    unicode-range="U+0020-F106"
   />
     <missing-glyph />
     <glyph glyph-name="space" unicode=" " horiz-adv-x="200" 
@@ -39,5 +39,7 @@ c0 17.6699 14.3301 32 32 32h32c17.6699 0 32 -14.3301 32 -32v-144h144z" />
     <glyph glyph-name="arrow-left" unicode="&#xf105;" 
 d="M257.5 2.90039l-22.2002 -22.2002c-9.39941 -9.40039 -24.5996 -9.40039 -33.8994 0l-194.4 194.3c-9.40039 9.40039 -9.40039 24.5996 0 33.9004l194.4 194.399c9.39941 9.40039 24.5996 9.40039 33.8994 0l22.2002 -22.2002c9.5 -9.5 9.2998 -25 -0.400391 -34.2998
 l-120.5 -114.8h287.4c13.2998 0 24 -10.7002 24 -24v-32c0 -13.2998 -10.7002 -24 -24 -24h-287.4l120.5 -114.8c9.80078 -9.2998 10 -24.7998 0.400391 -34.2998z" />
+    <glyph glyph-name="minus" unicode="&#xf106;" 
+d="M416 240c17.6699 0 32 -14.3301 32 -32v-32c0 -17.6699 -14.3301 -32 -32 -32h-384c-17.6699 0 -32 14.3301 -32 32v32c0 17.6699 14.3301 32 32 32h384z" />
   </font>
 </defs></svg>
