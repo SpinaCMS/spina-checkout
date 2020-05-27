@@ -1,4 +1,9 @@
 .sidebar-product{data: {quantity: order_item.quantity}}
   .sidebar-product-image= product_image_tag order_item.orderable, {resize: '160x160'}
   .sidebar-product-name= order_item.orderable.full_name
-  .sidebar-product-price= number_to_currency order_item.total
+  .sidebar-product-price
+    - if order_item.discount_amount > 0
+      %small{style: "display: block; text-align: right; text-decoration: line-through; opacity: .75"}= number_to_currency order_item.total_without_discount
+      .text-success= number_to_currency order_item.total
+    - else
+      = number_to_currency order_item.total
