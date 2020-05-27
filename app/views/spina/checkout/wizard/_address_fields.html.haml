@@ -1,12 +1,12 @@
 %div
   .form-group
-    = checkout_field(f, "#{address_type}_street1", size: :large, required: true)
-    = checkout_field(f, "#{address_type}_house_number", required: true)
-    = checkout_field(f, "#{address_type}_house_number_addition")
+    = checkout_field(f, "#{address_type}_street1", size: :large, required: true, default: current_customer&.default_address&.street1)
+    = checkout_field(f, "#{address_type}_house_number", required: true, default: current_customer&.house_number)
+    = checkout_field(f, "#{address_type}_house_number_addition", default: current_customer&.default_address&.house_number_addition)
 
   .form-group
-    = checkout_field(f, "#{address_type}_postal_code", required: true)
-    = checkout_field(f, "#{address_type}_city", required: true)
+    = checkout_field(f, "#{address_type}_postal_code", required: true, default: current_customer&.default_address&.postal_code)
+    = checkout_field(f, "#{address_type}_city", required: true, default: current_customer&.default_address&.city)
 
   .form-group
     .input-wrapper.focused{data: {label: Spina::Shop::Order.human_attribute_name("#{address_type}_country")}}

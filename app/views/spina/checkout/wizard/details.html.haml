@@ -11,8 +11,8 @@
       %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
 
       .form-group
-        = checkout_field(f, :first_name, required: true)
-        = checkout_field(f, :last_name, required: true)
+        = checkout_field(f, :first_name, required: true, default: current_customer&.first_name)
+        = checkout_field(f, :last_name, required: true, default: current_customer&.last_name)
 
       / Address fields
       = render partial: 'address_fields', locals: {f: f, address_type: "billing"}

@@ -14,7 +14,7 @@ module Spina
       end
 
       def checkout_field(form_builder, name, options = {})
-        value = options[:value] || form_builder.object.send(name)
+        value = options[:value] || form_builder.object.send(name) || options[:default]
         type = options[:type] || "text"
 
         # .input-wrapper classes

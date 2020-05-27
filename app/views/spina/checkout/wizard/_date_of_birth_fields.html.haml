@@ -1,2 +1,2 @@
 .form-group
-  = checkout_field(f, :date_of_birth, required: true, date: true)
+  = checkout_field(f, :date_of_birth, required: true, date: true, default: current_customer&.date_of_birth)
