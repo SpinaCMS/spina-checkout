@@ -1,3 +1,13 @@
+/ Discount
+- if current_order.discount.present?
+  .sidebar-summary-line.text-success
+    .pull-right= loading_gif
+    %span.text-success= current_order.discount.description
+
+/ Placeholder
+- if lookup_context.exists? "spina/checkout/sidebar/_before_subtotal_blank_state"
+  = render partial: "spina/checkout/sidebar/before_subtotal_blank_state"
+
 / Subtotal
 .sidebar-summary-line
   .pull-right= loading_gif
@@ -6,12 +16,6 @@
     = Spina::Shop::Order.human_attribute_name(:sub_total)
   - else
     = Spina::Shop::Order.human_attribute_name(:sub_total_excl_tax)
-
-/ Discount
-- if current_order.discount.present?
-  .sidebar-summary-line.text-success
-    .pull-right= loading_gif
-    %span.text-success= current_order.discount.description
 
 / Delivery costs
 - if current_order.delivery_option.present?

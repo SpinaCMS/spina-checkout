@@ -9,6 +9,10 @@
         = link_to discount_path, class: 'button button-mini', data: {method: :delete, remote: true} do
           &times;
 
+/ Placeholder
+- if lookup_context.exists? "spina/checkout/sidebar/_before_subtotal"
+  = render partial: "spina/checkout/sidebar/before_subtotal"
+
 / Subtotal
 .sidebar-summary-line
   .pull-right
