@@ -26,6 +26,11 @@ Spina::Checkout::Engine.routes.draw do
     # Infinite scrolling of order items in sidebar
     resources :order_items
   end
+
+  # Login
+  get :login, to: 'sessions#new'
+  post :login, to: 'sessions#create'
+  delete :logout, to: 'sessions#destroy'
   
   # Wizard (route with least priority)
   resources :wizard, path: '/'

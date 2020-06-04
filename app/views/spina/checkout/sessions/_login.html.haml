@@ -1,0 +1,6 @@
+.modal{data: {controller: "modal", action: "click->modal#close keyup@document->modal#escClose"}}
+  .modal-window{data: {action: "click->modal#stopPropagation"}}
+    = button_tag class: 'button modal-close', data: {action: "modal#close"} do
+      &times;
+
+    = render "email_form"
