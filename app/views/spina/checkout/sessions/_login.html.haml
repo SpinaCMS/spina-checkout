@@ -3,4 +3,21 @@
     = button_tag class: 'button modal-close', data: {action: "modal#close"} do
       &times;
 
-    = render "email_form"
+    = form_with url: login_path, data: {controller: "login"} do |f|
+      .modal-header
+        %h1.heading-1=t 'spina.checkout.sessions.login'
+        .page-content=t 'spina.checkout.sessions.login_description'
+
+      .form-group
+        .input-wrapper.focused{data: {controller: "input", label: Spina::Shop::CustomerAccount.human_attribute_name(:email)}}
+          = f.email_field :email, value: params[:email], data: {target: "input.field modal.firstInput", action: "keyup->input#placeholder change->input#placeholder"}
+
+      .form-group
+        .input-wrapper{data: {controller: "input", label: Spina::Shop::CustomerAccount.human_attribute_name(:password)}}
+          = f.password_field :password, data: {target: "input.field", action: "keyup->input#placeholder change->input#placeholder"}
+
+      = button_tag type: :submit, class: 'button button-primary button-large button-block' do
+        .button-content
+          =t 'spina.checkout.sessions.login'
+          %i.icon.icon-arrow-right{style: "margin-left: 8px"}
+
