@@ -16,6 +16,9 @@
         %small &nbsp;
         %strong= number_to_currency order_item.unit_price
 
+    - if !order_item.in_stock?
+      .text-danger{style: 'font-weight: 500'}=t "spina.checkout.out_of_stock"
+
   .shopping-cart-item-action
     = link_to order_item_path(order_item), data: {method: :delete} do
       %i.icon.icon-trash

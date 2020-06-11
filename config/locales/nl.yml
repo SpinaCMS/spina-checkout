@@ -59,6 +59,8 @@ nl:
       
       confirm_order: Bestelling afronden
       pay_order: Betalen
+
+      out_of_stock: Niet voldoende op voorraad
       
       products:
         one: Product

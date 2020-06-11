@@ -1,7 +1,7 @@
 (() => {
   const application = Stimulus.Application.start()
 
-  application.register("codes", class extends Stimulus.Controller {
+  application.register("waiting", class extends Stimulus.Controller {
 
     connect() {
       setTimeout(function() {

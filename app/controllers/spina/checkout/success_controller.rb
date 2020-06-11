@@ -12,7 +12,7 @@ module Spina
 
       # When the order is still just confirming, keep reloading this page until the order's state changes
       def waiting
-        redirect_to checkout_success_path(params[:id]) if @order.received?
+        redirect_to success_path(params[:id]) if @order.received?
       end
       
       private
