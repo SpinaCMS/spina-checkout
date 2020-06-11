@@ -1,7 +1,12 @@
 Spina::Checkout::Engine.routes.draw do
 
   # Success page!
-  resources :success, controller: "success", only: [:show]
+  resources :success, controller: "success", only: [:show] do
+    member do
+      # Waiting for payment processing
+      get :waiting
+    end
+  end
 
   # Canceling order
   resource :cancel_and_duplicate, controller: "cancel_and_duplicate"
