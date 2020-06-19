@@ -7,7 +7,9 @@ nav#wizard
 
   @media #{$mobile}
     background: white
-    top: 28px
+    border-bottom: 2px solid $gray-lighter
+    justify-content: space-between
+    top: 38px
     position: fixed
     width: 100%
     z-index: 100
@@ -41,13 +43,123 @@ nav#wizard
       margin-right: 10px
       width: 26px
 
+      &:before
+        display: none
+        @extend .icon, .icon-check
+
   @media #{$mobile}
     .wizard-step
-      display: none
+      border-bottom: none
+      flex-direction: column
+      font-size: 12px
+      flex: 1
+      padding: 15px 0px
+      position: relative
+      z-index: 2
+
+      &:before
+        background: $gray-light
+        content: " "
+        height: 3px
+        left: 0px
+        position: absolute
+        top: calc(50% - 10px)
+        width: 100%
+        z-index: 1
+
+      &:after
+        background: $gray-darker
+        content: " "
+        height: 3px
+        left: 0px
+        position: absolute
+        top: calc(50% - 10px)
+        width: 100%
+        z-index: 1
+
+      &:first-child
+        padding-left: 10px
+
+        .wizard-icon
+          position: relative
+
+        .wizard-icon:after
+          background: white
+          content: " "
+          display: block
+          height: 3px 
+          position: absolute
+          right: 20px
+          top: 8.5px
+          width: 100px
+          z-index: 3
+
+      &:last-child
+        padding-right: 10px
+
+        .wizard-icon
+          position: relative
+
+        .wizard-icon:after
+          background: white
+          content: " "
+          display: block
+          height: 3px 
+          position: absolute
+          left: 20px
+          top: 8.5px
+          width: 100px
+          z-index: 3
+
+      .wizard-icon
+        background: $gray-darker
+        color: $gray-darker
+        font-size: 10px
+        font-weight: 500
+        margin-right: 0
+        height: 20px
+        line-height: 20px
+        margin-bottom: 5px
+        position: relative
+        width: 20px
+
+        &:before
+          color: white
+          display: block
+          left: 5px
+          position: absolute
+          z-index: 5
 
     .wizard-step.current-step
       display: flex
-      padding: 10px
+
+      .wizard-icon
+        position: relative
+
+      .wizard-icon:before
+        background: white
+        border-radius: 3px
+        content: " "
+        height: 6px
+        left: 7px
+        position: absolute
+        top: 7px
+        width: 6px
+        z-index: 5
+
+      &:after
+        width: 90%
+
+      & ~ .wizard-step
+        &:after
+          display: none
+
+        .wizard-icon
+          background: $gray-light
+          color: $gray-light
+
+          &:before
+            display: none
 
 .checkout-back-link
   @media #{$mobile}
