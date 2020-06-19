@@ -220,7 +220,9 @@ label.form-label
     padding: 15px
 
     @media #{$mobile}
+      border-radius: 4px
       display: block
+      margin-bottom: 10px
       padding: 15px
 
     &:hover
@@ -238,6 +240,22 @@ label.form-label
   .form-option input[type="radio"]:checked
     & + .form-option-container + .form-option-expanded
       display: block
+
+      @media #{$mobile}
+        margin-top: -10px
+        position: relative
+        z-index: 1
+
+        &:before
+          background: $gray-lightest
+          border-left: 1px solid $gray-light
+          border-right: 1px solid $gray-light
+          content: " "
+          height: 3px
+          left: 0px
+          position: absolute
+          top: -3px
+          width: calc(100% - 2px)
 
   .form-option input[type="radio"]:checked + .form-option-container
     background: $gray-lightest
@@ -258,21 +276,30 @@ label.form-label
 
       @media #{$mobile}
         button
-          margin-top: 10px
+          margin-top: 15px
           width: 100%
 
   .form-option:not(:last-child)
     .form-option-container
       border-bottom: none
 
+      @media #{$mobile}
+        border-bottom: 1px solid $gray-light
+
   .form-option:first-child
     .form-option-container
       border-radius: 4px 4px 0 0
+
+      @media #{$mobile}
+        border-radius: 4px
 
   .form-option:last-child
     .form-option-container
       border-bottom-left-radius: 4px
       border-bottom-right-radius: 4px
+
+      @media #{$mobile}
+        border-radius: 4px
 
   .form-option-image
     align-items: center
