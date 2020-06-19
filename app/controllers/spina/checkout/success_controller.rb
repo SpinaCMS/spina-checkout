@@ -4,6 +4,9 @@ module Spina
       before_action :set_order
       before_action :redirect_if_building
       before_action :duplicate_if_failed_or_cancelled
+
+      # Enable overriding the template from main app
+      layout "spina/checkout/success"
     
       def show
         # Reset the current order
