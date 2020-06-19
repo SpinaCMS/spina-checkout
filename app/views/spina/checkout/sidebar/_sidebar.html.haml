@@ -1,4 +1,6 @@
 .sidebar-content
+  .sidebar-action.show-mobile= render partial: 'spina/checkout/sidebar/action'
+
   - if @step == :shopping_cart
     .sidebar-title=t 'spina.checkout.overview'
   - else
@@ -16,18 +18,4 @@
   .sidebar-summary{data: {controller: "sidebar-summary", summary_url: sidebar_summary_url}}
     = render partial: 'spina/checkout/sidebar/summary/blank_state'
 
-  - if @step == :overview
-    - if Spina::Checkout.config.terms_and_conditions_path.present?
-      .sidebar-terms-and-conditions
-        =t 'spina.checkout.terms_and_conditions_html', link: Spina::Checkout.config.terms_and_conditions_path, target: :blank
-
-    - if current_order.confirming?
-      = link_to current_order.payment_url, class: "button button-brand button-block button-large", style: "margin-top: 20px", data: {disable: "..."} do
-        =t "spina.checkout.pay_order"
-    - else
-      = button_tag t('spina.checkout.confirm_order'), type: :submit, class: 'button button-brand button-block button-large', style: "margin-top: 20px", data: {disable: "..."}
-
-  - else
-    = button_tag type: :submit, class: 'button button-primary button-block button-large', style: "margin-top: 20px", data: {disable_with: "..."} do
-      =t 'spina.checkout.next'
-      %i.icon.icon-arrow-right
+  .sidebar-action= render partial: 'spina/checkout/sidebar/action'
