@@ -24,11 +24,11 @@
         %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.delivery_address"
         .form-group
           .button-group
-            %label.form-label.button.button-white.button-small
+            %label.form-label.button.button-white.button-small.button-radio-button
               = f.radio_button :separate_delivery_address, false, data: {action: 'details#toggleSeparateDeliveryAddress'}
               =t 'spina.checkout.delivery_address_same_as_billing_address'
 
-            %label.form-label.button.button-white.button-small
+            %label.form-label.button.button-white.button-small.button-radio-button
               = f.radio_button :separate_delivery_address, true, data: {action: 'details#toggleSeparateDeliveryAddress', target: 'details.separateDeliveryAddress'}
               = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
         
