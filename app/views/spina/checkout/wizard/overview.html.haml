@@ -59,10 +59,15 @@
             %div{style: "display: flex; align-items: center"}
               = image_tag "spina/checkout/payment_methods/#{current_order.payment_method.parameterize}.svg"
               =t "payment_methods.#{current_order.payment_method.parameterize}.name"
-            
-      - if current_order.building?
-        = link_to wizard_path('payment'), class: 'button button-link checkout-back-link', style: 'padding-left: 0' do
-          %i.icon.icon-arrow-left
-          %span=t 'spina.checkout.back'
+
+      / Placeholder
+      - if lookup_context.exists? "spina/checkout/wizard/_after_overview"
+        = render partial: "spina/checkout/wizard/after_overview"
+          
+      - if current_order.building?  
+        .form-group
+          = link_to wizard_path('payment'), class: 'button button-link checkout-back-link', style: 'padding-left: 0' do
+            %i.icon.icon-arrow-left
+            %span=t 'spina.checkout.back'
 
     .sidebar= render partial: 'spina/checkout/sidebar/sidebar'
