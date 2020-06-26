@@ -27,6 +27,13 @@
               %br/
               = [current_order.delivery_postal_code, current_order.delivery_city].join(", ")
               (#{current_order.delivery_country&.code})
+            - else
+              - account = Spina::Account.first
+              = account.name
+              %br/
+              = account.address
+              %br/
+              = [account.postal_code, account.city].join(" ")
               
           = link_to t('spina.checkout.edit'), wizard_path('details') if current_order.building?
           
