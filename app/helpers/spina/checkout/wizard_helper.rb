@@ -44,7 +44,7 @@ module Spina
           # Convert to formatted date
           value = I18n.l(value) if options[:date] && value.present?
 
-          form_builder.text_field(name, 
+          form_builder.text_field(name, {
             type: type, 
             value: value,
             disabled: options[:disabled],
@@ -53,7 +53,7 @@ module Spina
               action: actions.join(" "),
               validate: options[:required]
             }
-          )
+          })
         end
       end
       
