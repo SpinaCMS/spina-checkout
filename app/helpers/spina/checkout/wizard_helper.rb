@@ -51,10 +51,27 @@ module Spina
             data: {
               target: targets.join(" "),
               action: actions.join(" "),
+              name: name,
               validate: options[:required]
             }
           })
         end
+      end
+
+      def form_errors(form_object, *attributes)
+        attributes.map do |attribute|
+          next if form_object.errors[attribute].blank?
+          { attribute: attribute, message: "#{form_object.class.human_attribute_name attribute} #{form_object.errors[attribute][0]}" }
+        end.compact
+      end
+
+      def form_errors(form_object, *attributes)
+        attributes.map do |attribute|
+          next if form_object.errors[attribute].blank?
+          content_tag(:div, class: 'form-error', data: {target: 'validate.errorMessage', attribute: attribute}) do
+            "#{form_object.class.human_attribute_name attribute} #{form_object.errors[attribute][0]}"
+          end
+        end.compact.join("\n").html_safe
       end
       
       private

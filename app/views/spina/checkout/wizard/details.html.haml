@@ -3,10 +3,12 @@
     .main-content{data: {controller: "details"}}
       %h2.heading-2.hide-mobile=t 'spina.checkout.steps.details'
 
-      = render partial: 'spina/checkout/shared/notifications'
+      -#= render partial: 'spina/checkout/shared/notifications'
 
       .form-group
         = checkout_field(f, :email, target: "details.email", required: "email", default: current_customer&.email)
+
+      .form-errors= form_errors(f.object, :email)
 
       - unless logged_in?
         = link_to t("spina.checkout.account_login"), login_path, data: {remote: true, target: "details.loginLink"}
@@ -16,6 +18,8 @@
       .form-group
         = checkout_field(f, :first_name, required: true, default: current_customer&.first_name)
         = checkout_field(f, :last_name, required: true, default: current_customer&.last_name)
+
+      .form-errors= form_errors(f.object, :first_name, :last_name)
 
       / Address fields
       = render partial: 'address_fields', locals: {f: f, address_type: "billing"}
@@ -36,6 +40,8 @@
           .form-group
             = checkout_field(f, :delivery_first_name, required: true)
             = checkout_field(f, :delivery_last_name, required: true)
+
+          .form-errors= form_errors(f.object, :delivery_first_name, :delivery_last_name)
             
           = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
 

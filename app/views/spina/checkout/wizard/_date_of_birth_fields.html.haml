@@ -1,2 +1,4 @@
 .form-group
   = checkout_field(f, :date_of_birth, required: true, date: true, default: current_customer&.date_of_birth)
+
+.form-errors= form_errors(f.object, "date_of_birth").join("<br />").html_safe

@@ -3,7 +3,7 @@
 
   application.register("validate", class extends Stimulus.Controller {
     static get targets() {
-      return ["required", "country"]
+      return ["required", "country", "errorMessage"]
     }
 
     connect() {
@@ -25,6 +25,7 @@
       let wrapper = field.closest('.input-wrapper')
       let valid = false
       let regex = null
+      let errorMessage = this.errorMessage(field.dataset.name)
 
       switch(field.dataset.validate) {
         case 'email':
@@ -36,9 +37,15 @@
       }
 
       wrapper.classList.toggle('valid', valid)
-      if (invalid_labels) {
-        wrapper.classList.toggle('invalid', !valid)
-      }
+
+      if (errorMessage) errorMessage.classList.toggle('valid', valid)
+      if (invalid_labels) wrapper.classList.toggle('invalid', !valid)
+    }
+
+    errorMessage(attribute) {
+      return this.errorMessageTargets.find(function(error) {
+        return error.dataset.attribute == attribute
+      })
     }
 
   })
