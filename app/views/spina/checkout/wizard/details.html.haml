@@ -9,7 +9,7 @@
         = checkout_field(f, :email, target: "details.email", required: "email", default: current_customer&.email)
 
       - unless logged_in?
-        = link_to 'Inloggen', login_path, data: {remote: true, target: "details.loginLink"}
+        = link_to t("spina.checkout.account_login"), login_path, data: {remote: true, target: "details.loginLink"}
 
       %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
 
