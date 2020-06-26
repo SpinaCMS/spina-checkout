@@ -22,6 +22,7 @@ nav#wizard
     font-weight: 600
     margin-bottom: -4px
     padding: 20px
+    position: relative
     text-decoration: none
     white-space: nowrap
 
@@ -31,20 +32,38 @@ nav#wizard
 
       .wizard-icon
         background: $gray-darker
+        color: white
+
+        @media #{$mobile}
+          color: $gray-darker
+
+        &:before
+          display: none
+
+      & ~ .wizard-step .wizard-icon
+        color: white
+
+        &:before
+          display: none
 
     .wizard-icon
       background: $gray-light
       border-radius: 13px
-      color: white
+      color: $gray-light
       font-size: 14px
       font-weight: 700
       height: 26px
       line-height: 26px
       margin-right: 10px
+      position: relative
       width: 26px
 
       &:before
-        display: none
+        color: white
+        left: 0px
+        position: absolute
+        width: 100%
+        z-index: 1
         @extend .icon, .icon-check
 
   @media #{$mobile}
@@ -54,7 +73,6 @@ nav#wizard
       font-size: 12px
       flex: 1
       padding: 15px 0px
-      position: relative
       z-index: 2
 
       &:before
@@ -126,7 +144,7 @@ nav#wizard
         &:before
           color: white
           display: block
-          left: 5px
+          left: 0
           position: absolute
           z-index: 5
 
