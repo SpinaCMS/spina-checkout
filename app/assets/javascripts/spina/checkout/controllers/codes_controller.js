@@ -26,6 +26,10 @@
           this.sidebar.fetchSummary()
         } else {
           this.inputTarget.value = ""
+
+          if (response.status == 404) {
+            alert("Ongeldige code")
+          }
         }
       }.bind(this))
     }
