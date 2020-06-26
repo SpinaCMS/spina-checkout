@@ -35,7 +35,10 @@
               %br/
               = [account.postal_code, account.city].join(" ")
               
-          = link_to t('spina.checkout.edit'), wizard_path('details') if current_order.building?
+          - if current_order.requires_shipping?
+            = link_to t('spina.checkout.edit'), wizard_path('details') if current_order.building?
+          - else
+            = link_to t('spina.checkout.edit'), wizard_path('delivery') if current_order.building?
           
           .checkout-overview-partner
             %h4.heading-3
