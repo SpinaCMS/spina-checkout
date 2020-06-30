@@ -6,12 +6,13 @@
       -#= render partial: 'spina/checkout/shared/notifications'
 
       .form-group
-        = checkout_field(f, :email, target: "details.email", required: "email", default: current_customer&.email)
+        = checkout_field(f, :email, target: "details.email", action: "details#checkExistingCustomerAccount", required: "email", default: current_customer&.email)
 
       .form-errors= form_errors(f.object, :email)
 
       - unless logged_in?
-        = link_to t("spina.checkout.account_login"), login_path, data: {remote: true, target: "details.loginLink"}
+        %div{data: {target: "details.loginNotification", existing_customer_account_path: spina_checkout.existing_customer_account_path}}
+          = link_to t("spina.checkout.account_login"), login_path, data: {remote: true, target: "details.loginLink"}
 
       %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
 

@@ -18,6 +18,9 @@ Spina::Checkout::Engine.routes.draw do
   # Delivery date
   resource :delivery_date, controller: "delivery_date"
 
+  # Existing customer account
+  resource :existing_customer_account, controller: "existing_customer_account"
+
   # Discounts & giftcards
   resources :codes
   resources :gift_cards, only: [:destroy]

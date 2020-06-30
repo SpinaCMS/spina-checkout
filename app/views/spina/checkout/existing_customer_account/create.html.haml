@@ -1,0 +1,4 @@
+.notification.notification-info
+  Hey #{@customer_account.customer.first_name}, je hebt al een account.
+  %br/
+  = link_to 'Inloggen met email', login_path(email: @customer_account.email), data: {remote: true}

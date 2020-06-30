@@ -25,6 +25,11 @@ nl:
       empty_cart: Winkelmand legen
       edit: Bewerken
       edit_order: Bestelling bewerken
+      edit_delivery_address: Verzendadres bewerken
+      edit_billing_address: Factuuradres bewerken
+      edit_details: Verzendadres bewerken
+      edit_delivery: Bezorgmethode wijzigen
+      edit_payment: Betaling wijzigen
       
       expected_delivery: Verwachte leverdatum
 

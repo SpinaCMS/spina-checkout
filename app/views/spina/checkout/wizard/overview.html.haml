@@ -36,9 +36,9 @@
               = [account.postal_code, account.city].join(" ")
               
           - if current_order.requires_shipping?
-            = link_to t('spina.checkout.edit'), wizard_path('details') if current_order.building?
+            %small= link_to t('spina.checkout.edit_details'), wizard_path('details') if current_order.building?
           - else
-            = link_to t('spina.checkout.edit'), wizard_path('delivery') if current_order.building?
+            %small= link_to t('spina.checkout.edit_delivery_address'), wizard_path('delivery') if current_order.building?
           
           .checkout-overview-partner
             %h4.heading-3
@@ -50,6 +50,8 @@
             %div{style: "display: flex; align-items: center"}
               = image_tag "spina/checkout/carriers/#{current_order.delivery_option.carrier.parameterize}.svg"
               =t "delivery_options.#{current_order.delivery_option.name.parameterize}.name"
+
+            %small= link_to t('spina.checkout.edit_delivery'), wizard_path('delivery') if current_order.building?
             
         .checkout-overview-column
           %h3.heading-3=t 'spina.checkout.billing_address'
@@ -61,7 +63,7 @@
             %br/
             #{current_order.billing_postal_code}, #{current_order.billing_city} (#{current_order.billing_country.code})
 
-          = link_to t('spina.checkout.edit'), wizard_path('details') if current_order.building?
+          %small= link_to t('spina.checkout.edit_billing_address'), wizard_path('details') if current_order.building?
           
           .checkout-overview-partner
             %h4.heading-3=t 'spina.checkout.payment_method'
@@ -74,6 +76,8 @@
               %div{style: "display: flex; align-items: center"}
                 = image_tag "spina/checkout/payment_methods/#{current_order.payment_method.parameterize}.svg"
                 =t "payment_methods.#{current_order.payment_method.parameterize}.name"
+
+            %small= link_to t('spina.checkout.edit_payment'), wizard_path('payment') if current_order.building?
 
       / Placeholder
       - if lookup_context.exists? "spina/checkout/wizard/_after_overview"
