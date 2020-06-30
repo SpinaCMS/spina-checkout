@@ -115,7 +115,7 @@ label.form-label
     textarea
       background: white
 
-  &.valid:before
+  &.valid:after
     color: $green
     font-size: 13px
     position: absolute
@@ -132,13 +132,13 @@ label.form-label
     textarea
       border-color: $red
 
-  &.invalid:before
+  &.invalid:after
     color: $red
     position: absolute
     right: 14px
     top: 18px
 
-  &[data-label]:after
+  &[data-label]:before
     color: $gray
     content: attr(data-label)
     display: block
@@ -150,7 +150,7 @@ label.form-label
     transition: transform .2s ease, font-size .2s ease
     z-index: 0
     
-  &.input-small[data-label]:after
+  &.input-small[data-label]:before
     top: 15px
 
   &.focused
@@ -162,7 +162,7 @@ label.form-label
       padding-bottom: 8px
       padding-top: 20px
 
-    &[data-label]:after
+    &[data-label]:before
       font-size: 12px
       transform: translateY(-8px)
       z-index: 1
