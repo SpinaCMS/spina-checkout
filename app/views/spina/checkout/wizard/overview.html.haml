@@ -65,10 +65,15 @@
           
           .checkout-overview-partner
             %h4.heading-3=t 'spina.checkout.payment_method'
-
-            %div{style: "display: flex; align-items: center"}
-              = image_tag "spina/checkout/payment_methods/#{current_order.payment_method.parameterize}.svg"
-              =t "payment_methods.#{current_order.payment_method.parameterize}.name"
+            - if current_order.payment_issuer.present?
+              %div{style: "display: flex; align-items: center"}
+                = image_tag "spina/checkout/payment_methods/#{current_order.payment_method.parameterize}/payment_issuers/#{current_order.payment_issuer.parameterize}.png"
+                =t "payment_methods.#{current_order.payment_method.parameterize}.payment_issuers.#{current_order.payment_issuer.parameterize}"
+               
+            - else
+              %div{style: "display: flex; align-items: center"}
+                = image_tag "spina/checkout/payment_methods/#{current_order.payment_method.parameterize}.svg"
+                =t "payment_methods.#{current_order.payment_method.parameterize}.name"
 
       / Placeholder
       - if lookup_context.exists? "spina/checkout/wizard/_after_overview"
