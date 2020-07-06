@@ -19,6 +19,9 @@
     - if !order_item.in_stock?
       .text-danger{style: 'font-weight: 500'}=t "spina.checkout.out_of_stock"
 
+    - if !order_item.live?
+      .text-danger{style: 'font-weight: 500'}=t "spina.checkout.unavailable"
+
   .shopping-cart-item-action
     = link_to order_item_path(order_item), data: {method: :delete} do
       %i.icon.icon-trash

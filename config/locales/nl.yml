@@ -71,6 +71,7 @@ nl:
       pay_order: Betalen
 
       out_of_stock: Niet voldoende op voorraad
+      unavailable: Product is niet (meer) beschikbaar
       
       products:
         one: Product
