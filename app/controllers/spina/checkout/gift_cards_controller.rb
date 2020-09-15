@@ -7,7 +7,7 @@ module Spina
         @gift_card = current_order.gift_cards.find(params[:id])
         current_order.gift_cards.delete(@gift_card)
         current_order.save
-        render js: "document.querySelector('.sidebar-summary').controller.fetchSummary()"
+        render js: "document.querySelector('.sidebar-summary').controller.fetchSummary(); document.querySelector('.sidebar-products').controller.fetchProductList()"
       end
 
       private

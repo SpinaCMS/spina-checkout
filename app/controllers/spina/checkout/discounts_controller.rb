@@ -5,7 +5,7 @@ module Spina
 
       def destroy
         current_order.update(discount: nil)
-        render js: "document.querySelector('.sidebar-summary').controller.fetchSummary()"
+        render js: "document.querySelector('.sidebar-summary').controller.fetchSummary(); document.querySelector('.sidebar-products').controller.fetchProductList()"
       end
 
       private

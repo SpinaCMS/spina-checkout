@@ -1,6 +1,6 @@
 .overflow-container
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
-    .main-content{data: {controller: "checkout-shopping-cart"}}
+    .main-content
       %h2.heading-2.hide-mobile=t 'spina.checkout.steps.overview'
       
       - if current_order.confirming?
