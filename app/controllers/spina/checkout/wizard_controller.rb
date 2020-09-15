@@ -23,8 +23,12 @@ module Spina
           current_order.assign_attributes(order_params)
           additional_updates
         when :overview
-          current_order.transition_to!(:confirming, transition_metadata)
-          redirect_to current_order.payment_url and return
+          begin
+            current_order.transition_to!(:confirming, transition_metadata)
+            redirect_to current_order.payment_url and return
+          rescue Statesman::GuardFailedError
+            redirect_to wizard_path(:shopping_cart) and return
+          end
         end
         
         render_wizard current_order
