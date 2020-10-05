@@ -24,6 +24,7 @@
       }).then(function(response) {
         if (response.status == 200) {
           this.sidebar.fetchSummary()
+          this.productList.fetchProductList()
         } else {
           this.inputTarget.value = ""
 
@@ -54,6 +55,10 @@
 
     get sidebar() {
       return document.querySelector('.sidebar-summary').controller
+    }
+
+    get productList() {
+      return document.querySelector('.sidebar-products').controller
     }
 
   })
