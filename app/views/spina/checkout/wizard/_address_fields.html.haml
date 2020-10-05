@@ -1,7 +1,7 @@
 %div
   .form-group
     = checkout_field(f, "#{address_type}_street1", size: :large, required: true, default: current_customer&.default_address&.street1)
-    = checkout_field(f, "#{address_type}_house_number", required: true, default: current_customer&.house_number)
+    = checkout_field(f, "#{address_type}_house_number", required: true, default: current_customer&.default_address&.house_number)
     = checkout_field(f, "#{address_type}_house_number_addition", default: current_customer&.default_address&.house_number_addition)
 
   .form-group
