@@ -11,7 +11,10 @@ module Spina
                     :button_color,
                     :button_hover_color,
                     :header_color,
-                    :terms_and_conditions_path
+                    :terms_and_conditions_path,
+                    :login_popup,
+                    :codes_form,
+                    :delivery_date_estimation
          
     # Default colors
     self.header_color = '#fff'
@@ -24,5 +27,14 @@ module Spina
 
     # Default path to terms and conditions
     self.terms_and_conditions_path = nil
+
+    # Show a popup to login if customer is not logged in yet
+    self.login_popup = true
+
+    # Add button in sidebar to add codes
+    self.codes_form = true
+
+    # Estimate delivery date in sidebar
+    self.delivery_date_estimation = true
   end
 end

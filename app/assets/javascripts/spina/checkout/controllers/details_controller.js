@@ -8,7 +8,7 @@
 
     connect() {
       this.toggleSeparateDeliveryAddress()
-      this.showLoginModal()
+      if(this.loginPopup) this.showLoginModal()
     }
 
     showLoginModal() {
@@ -62,6 +62,10 @@
 
     get token() {
       return document.querySelector('meta[name="csrf-token"]').content
+    }
+
+    get loginPopup() {
+      return this.element.hasAttribute('data-login-popup')
     }
 
   })
