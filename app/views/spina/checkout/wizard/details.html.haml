@@ -41,7 +41,13 @@
               = f.radio_button :separate_delivery_address, true, data: {action: 'details#toggleSeparateDeliveryAddress', target: 'details.separateDeliveryAddress'}
               = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
         
-        %div{data: {target: "details.deliveryAddress"}}
+        %div{data: {target: "details.deliveryAddress", controller: "address-book"}}
+          - if current_customer&.addresses&.many?
+            .form-group
+              .input-wrapper.focused{data: {label: Spina::Shop::Order.human_attribute_name(:separate_delivery_address)}}
+                .form-dropdown
+                  = select_tag :address_book, options_for_select(current_customer.addresses.where(country_id: current_customer.country_id).map{|address| ["#{address.address}, #{address.city} (#{address.name})", address.id, {data: {first_name: address.first_name, last_name: address.last_name, company: address.company, postal_code: address.postal_code, house_number: address.house_number, house_number_addition: address.house_number_addition, city: address.city, street: address.street1}}]}), {include_blank: t("spina.checkout.choose_from_address_book"), data: {action: "address-book#chooseAddress"}}
+
           .form-group
             = checkout_field(f, :delivery_company)
           .form-group
