@@ -16,6 +16,11 @@
 
       %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
 
+      - if f.object.business?
+        = f.hidden_field :company, value: current_customer&.company
+        .form-group
+          = checkout_field(f, :company, required: true)
+
       .form-group
         = checkout_field(f, :first_name, required: true, default: current_customer&.first_name)
         = checkout_field(f, :last_name, required: true, default: current_customer&.last_name)
@@ -38,6 +43,8 @@
               = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
         
         %div{data: {target: "details.deliveryAddress"}}
+          .form-group
+            = checkout_field(f, :delivery_company)
           .form-group
             = checkout_field(f, :delivery_first_name, required: true)
             = checkout_field(f, :delivery_last_name, required: true)
