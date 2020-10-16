@@ -59,5 +59,6 @@ en:
         payment: Payment
         shopping_cart: Shopping cart
       success: Order confirmed
+      tax: VAT
       terms_and_conditions_html: By proceeding you agree to our <a href="%{link}" target="_blank">terms and agreements</a>
       unavailable: Product is unavailable

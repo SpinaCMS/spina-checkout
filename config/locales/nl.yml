@@ -59,5 +59,6 @@ nl:
         payment: Betaling
         shopping_cart: Winkelmand
       success: Bestelling geplaatst
+      tax: Btw
       terms_and_conditions_html: Door verder te gaan ga je akkoord met onze <a href="%{link}" target="_blank">algemene voorwaarden</a>
       unavailable: Product is niet (meer) beschikbaar
