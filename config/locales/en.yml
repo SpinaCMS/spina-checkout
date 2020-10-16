@@ -1,4 +1,61 @@
 en:
   spina:
     checkout:
+      account_login: Already have an account? Login
+      add_discount: Discount
+      add_gift_card: Gift card
+      are_you_sure: Are you sure?
+      back: Back
+      back_to_cart: Back to shopping cart
+      back_to_delivery: Back to delivery
+      back_to_details: Back to details
+      back_to_payment: Back to payment
+      back_to_webshop: Back to webshop
+      back_to_website: Back to website
+      billing_address: Billing address
+      choose_country: Choose country
+      choose_delivery: Choose delivery
+      choose_payment: Choose payment
+      confirm_order: Confirm order
+      delete_order_item: Delete order item
+      delivery_address: Delivery address
+      delivery_address_same_as_billing_address: Same as billing address
+      delivery_method: Delivery method
+      edit: Edit
+      edit_billing_address: Edit billing address
+      edit_delivery: Edit delivery
+      edit_delivery_address: Edit delivery address
+      edit_details: Edit details
+      edit_order: Edit order
+      edit_payment: Edit payment
+      empty_cart: Empty cart
+      empty_shopping_cart: Empty shopping cart
+      expected_delivery: Expected delivery
+      free: Free
+      load_more_products: Load more products
+      new_address: New address
       next: Next
+      optional: "(optional)"
+      order_not_yet_received: Your order has not been confirmed yet.
+      out_of_stock: Out of stock
+      overview: Overview
+      overview_delivery: Delivery
+      overview_pickup: Pickup
+      pay_order: Pay order
+      payment_method: Payment method
+      pickup: Pickup
+      products:
+        one: Product
+        other: "%{count} products"
+      reference: Reference
+      safe_checkout: Safe checkout
+      shipping: Shipping
+      shopping_cart: Shopping cart
+      steps:
+        delivery: Delivery
+        details: Details
+        overview: Overview
+        payment: Payment
+        shopping_cart: Shopping cart
+      terms_and_conditions_html: By proceeding you agree to our <a href="%{link}" target="_blank">terms and agreements</a>
+      unavailable: Product is unavailable

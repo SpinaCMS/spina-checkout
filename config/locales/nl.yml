@@ -1,87 +1,61 @@
 nl:
   spina:
     checkout:
+      account_login: Heb je al een account? Inloggen
       add_discount: Kortingscode
       add_gift_card: Cadeaukaart
-      
       are_you_sure: Weet je het zeker?
-      
       back: Terug
-
       back_to_cart: Terug naar winkelmand
       back_to_delivery: Terug naar verzending
       back_to_details: Terug naar gegevens
       back_to_payment: Terug naar betaling
-      back_to_website: Terug naar website
       back_to_webshop: Terug naar webshop
-
+      back_to_website: Terug naar website
       billing_address: Factuuradres
-
-      confirm_order: Bevestigen en betalen
-
-      delete_order_item: Verwijderen
-
-      empty_shopping_cart: Lege winkelmand
-      empty_cart: Winkelmand legen
-      edit: Bewerken
-      edit_order: Bestelling bewerken
-      edit_delivery_address: Verzendadres bewerken
-      edit_billing_address: Factuuradres bewerken
-      edit_details: Verzendadres bewerken
-      edit_delivery: Bezorgmethode wijzigen
-      edit_payment: Betaling wijzigen
-      
-      expected_delivery: Verwachte leverdatum
-
-      account_login: Heb je al een account? Inloggen
-      
-      free: Gratis
-
-      overview: Overzicht
-      overview_pickup: Ophalen
-      order_not_yet_received: De bestelling is nog niet bevestigd.
-      
-      safe_checkout: Veilig afrekenen
-
-      load_more_products: Alle producten laten zien
-
-      shipping: Verzenden
-      shopping_cart: Winkelmand
-      pickup: Ophalen
-
-      next: Volgende
-
       choose_country: Kies land
       choose_delivery: Kies verzendmethode
       choose_payment: Kies betalingsmethode
-      
+      confirm_order: Bestelling afronden
+      delete_order_item: Verwijderen
       delivery_address: Afleveradres
       delivery_address_same_as_billing_address: Gelijk aan factuuradres
-
       delivery_method: Verzendmethode
-      payment_method: Betalingsmethode
-
+      edit: Bewerken
+      edit_billing_address: Factuuradres bewerken
+      edit_delivery: Bezorgmethode wijzigen
+      edit_delivery_address: Verzendadres bewerken
+      edit_details: Verzendadres bewerken
+      edit_order: Bestelling bewerken
+      edit_payment: Betaling wijzigen
+      empty_cart: Winkelmand legen
+      empty_shopping_cart: Lege winkelmand
+      expected_delivery: Verwachte leverdatum
+      free: Gratis
+      load_more_products: Alle producten laten zien
       new_address: Nieuw adres
-
-      reference: Referentie
-      optional: (optioneel)
-      overview_delivery: Bezorging
-      
-      confirm_order: Bestelling afronden
-      pay_order: Betalen
-
+      next: Volgende
+      optional: "(optioneel)"
+      order_not_yet_received: De bestelling is nog niet bevestigd.
       out_of_stock: Niet voldoende op voorraad
-      unavailable: Product is niet (meer) beschikbaar
-      
+      overview: Overzicht
+      overview_delivery: Bezorging
+      overview_pickup: Ophalen
+      pay_order: Betalen
+      payment_method: Betalingsmethode
+      pickup: Ophalen
       products:
         one: Product
         other: "%{count} producten"
-
+      reference: Referentie
+      safe_checkout: Veilig afrekenen
+      shipping: Verzenden
+      shopping_cart: Winkelmand
       steps:
-        shopping_cart: Winkelmand
-        details: Gegevens
         delivery: Verzending
-        payment: Betaling
+        details: Gegevens
         overview: Overzicht
-        
+        payment: Betaling
+        shopping_cart: Winkelmand
       terms_and_conditions_html: Door verder te gaan ga je akkoord met onze <a href="%{link}" target="_blank">algemene voorwaarden</a>
+      unavailable: Product is niet (meer) beschikbaar
