@@ -1,26 +1,28 @@
 fr:
   spina:
     checkout:
-      account_login: 
-      add_discount: 
-      add_gift_card: 
-      are_you_sure: 
-      back: 
-      back_to_cart: 
-      back_to_delivery: 
-      back_to_details: 
-      back_to_payment: 
-      back_to_webshop: 
-      back_to_website: 
-      billing_address: 
-      choose_country: 
-      choose_delivery: 
-      choose_from_address_book: 
-      choose_payment: 
-      confirm_order: 
-      delete_order_item: 
-      delivery_address: 
-      delivery_address_same_as_billing_address: 
+      account_login: Vous avez déjà un compte? Login
+      add_discount: |2-
+
+        Remise
+      add_gift_card: Carte cadeau
+      are_you_sure: Êtes-vous sûr?
+      back: Retour
+      back_to_cart: Retour au panier
+      back_to_delivery: Retour à la livraison
+      back_to_details: Retour aux détails
+      back_to_payment: Retour au paiement
+      back_to_webshop: Retour à la webshop
+      back_to_website: Retour à la website
+      billing_address: Adresse de facturation
+      choose_country: Choisissez un pays
+      choose_delivery: Choisir la méthode de livraison
+      choose_from_address_book: Choisissez dans le carnet d'adresses
+      choose_payment: Choisissez le mode de paiement
+      confirm_order: Confirmer la commande
+      delete_order_item: Effacer
+      delivery_address: Adresse de livraison
+      delivery_address_same_as_billing_address: Identique à l'adresse de facturation
       delivery_method: 
       edit: 
       edit_billing_address: 

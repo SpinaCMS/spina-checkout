@@ -14,11 +14,11 @@ en:
       back_to_website: Back to website
       billing_address: Billing address
       choose_country: Choose country
-      choose_delivery: Choose delivery
+      choose_delivery: Choose delivery method
       choose_from_address_book: Choose from address book
       choose_payment: Choose payment
       confirm_order: Confirm order
-      delete_order_item: Delete order item
+      delete_order_item: Delete
       delivery_address: Delivery address
       delivery_address_same_as_billing_address: Same as billing address
       delivery_method: Delivery method
