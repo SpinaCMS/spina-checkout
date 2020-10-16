@@ -3,8 +3,8 @@
     - if past_step?(step) && current_order&.building?
       = link_to wizard_path(step), class: "wizard-step" do
         .wizard-icon= index + 1
-        %span=t "spina.checkout.#{step}"
+        %span=t "spina.checkout.steps.#{step}"
     - else
       .wizard-step{class: ('current-step' if step == @step)}
         .wizard-icon= index + 1
-        %span=t "spina.checkout.#{step}"
+        %span=t "spina.checkout.steps.#{step}"
