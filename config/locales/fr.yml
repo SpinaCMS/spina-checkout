@@ -23,42 +23,44 @@ fr:
       delete_order_item: Effacer
       delivery_address: Adresse de livraison
       delivery_address_same_as_billing_address: Identique à l'adresse de facturation
-      delivery_method: 
-      edit: 
-      edit_billing_address: 
-      edit_delivery: 
-      edit_delivery_address: 
-      edit_details: 
-      edit_order: 
-      edit_payment: 
-      empty_cart: 
-      empty_shopping_cart: 
-      expected_delivery: 
-      free: 
-      load_more_products: 
-      new_address: 
-      next: 
-      optional: 
-      order_not_yet_received: 
-      out_of_stock: 
-      overview: 
-      overview_delivery: 
-      overview_pickup: 
-      pay_order: 
-      payment_method: 
-      pickup: 
-      products: 
-      reference: 
-      safe_checkout: 
-      shipping: 
-      shopping_cart: 
+      delivery_method: Méthode de livraison
+      edit: Modifier
+      edit_billing_address: Modifier
+      edit_delivery: Modifier
+      edit_delivery_address: Modifier
+      edit_details: Modifier
+      edit_order: Modifier
+      edit_payment: Modifier
+      empty_cart: Panier vide
+      empty_shopping_cart: Panier vide
+      expected_delivery: Livraison prévue
+      free: Gratuit
+      load_more_products: Afficher tous les produits
+      new_address: Nouvelle adresse
+      next: Prochain
+      optional: en option
+      order_not_yet_received: La commande n'est pas encore reçue
+      out_of_stock: En rupture de stock
+      overview: Aperçu
+      overview_delivery: Livraison
+      overview_pickup: Ramasser
+      pay_order: Payer
+      payment_method: Mode de paiement
+      pickup: Ramasser
+      products:
+        one: Produit
+        other: "%{count} produits"
+      reference: Référence
+      safe_checkout: Paiement sécurisé
+      shipping: Livraison
+      shopping_cart: Panier
       steps:
         delivery: Livraison
         details: Informations
         overview: Présentation
         payment: Paiement
         shopping_cart: Panier
-      success: 
+      success: Commande confirmée
       tax: T.V.A.
-      terms_and_conditions_html: 
-      unavailable: 
+      terms_and_conditions_html: En continuant, vous acceptez nos <a href="%{link}" target="_blank">termes et conditions</a>
+      unavailable: Le produit n'est pas disponible
