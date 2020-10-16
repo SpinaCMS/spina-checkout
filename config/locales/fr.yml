@@ -53,11 +53,11 @@ fr:
       shipping: 
       shopping_cart: 
       steps:
-        delivery: 
-        details: 
-        overview: 
-        payment: 
-        shopping_cart: 
+        delivery: Livraison
+        details: Informations
+        overview: Présentation
+        payment: Paiement
+        shopping_cart: Panier
       success: 
       terms_and_conditions_html: 
       unavailable: 

@@ -51,11 +51,11 @@ de:
       shipping: 
       shopping_cart: 
       steps:
-        delivery: 
-        details: 
-        overview: 
-        payment: 
-        shopping_cart: 
+        delivery: Lieferung
+        details: Einzelheiten
+        overview: Übersicht
+        payment: Bezahlung
+        shopping_cart: Einkaufswagen
       success: 
       terms_and_conditions_html: 
       unavailable: 
