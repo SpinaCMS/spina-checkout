@@ -15,6 +15,7 @@ de:
       billing_address: 
       choose_country: 
       choose_delivery: 
+      choose_from_address_book: 
       choose_payment: 
       confirm_order: 
       delete_order_item: 
@@ -55,5 +56,6 @@ de:
         overview: 
         payment: 
         shopping_cart: 
+      success: 
       terms_and_conditions_html: 
       unavailable: 

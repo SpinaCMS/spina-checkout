@@ -15,6 +15,7 @@ nl:
       billing_address: Factuuradres
       choose_country: Kies land
       choose_delivery: Kies verzendmethode
+      choose_from_address_book: Kies uit adresboek
       choose_payment: Kies betalingsmethode
       confirm_order: Bestelling afronden
       delete_order_item: Verwijderen
@@ -57,5 +58,6 @@ nl:
         overview: Overzicht
         payment: Betaling
         shopping_cart: Winkelmand
+      success: Bestelling geplaatst
       terms_and_conditions_html: Door verder te gaan ga je akkoord met onze <a href="%{link}" target="_blank">algemene voorwaarden</a>
       unavailable: Product is niet (meer) beschikbaar

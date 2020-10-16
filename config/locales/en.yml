@@ -15,6 +15,7 @@ en:
       billing_address: Billing address
       choose_country: Choose country
       choose_delivery: Choose delivery
+      choose_from_address_book: Choose from address book
       choose_payment: Choose payment
       confirm_order: Confirm order
       delete_order_item: Delete order item
@@ -57,5 +58,6 @@ en:
         overview: Overview
         payment: Payment
         shopping_cart: Shopping cart
+      success: Order confirmed
       terms_and_conditions_html: By proceeding you agree to our <a href="%{link}" target="_blank">terms and agreements</a>
       unavailable: Product is unavailable
