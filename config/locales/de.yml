@@ -21,18 +21,18 @@ de:
       delete_order_item: Löschen
       delivery_address: Lieferadresse
       delivery_address_same_as_billing_address: wie Rechnungsadresse
-      delivery_method: 
-      edit: 
-      edit_billing_address: 
-      edit_delivery: 
-      edit_delivery_address: 
-      edit_details: 
-      edit_order: 
-      edit_payment: 
-      empty_cart: 
-      empty_shopping_cart: 
+      delivery_method: Liefermethode
+      edit: Anpassen
+      edit_billing_address: Rechnungsadresse anpassen
+      edit_delivery: Liefermethode anpassen
+      edit_delivery_address: Lieferadresse anpassen
+      edit_details: Lieferadresse anpassen
+      edit_order: Bestelling anpassen
+      edit_payment: Zahlung anpassen
+      empty_cart: Leerer Einkaufswagen
+      empty_shopping_cart: Leerer Einkaufswagen
       expected_delivery: 
-      free: 
+      free: Frei
       load_more_products: 
       new_address: 
       next: 
