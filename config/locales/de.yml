@@ -31,32 +31,34 @@ de:
       edit_payment: Zahlung anpassen
       empty_cart: Leerer Einkaufswagen
       empty_shopping_cart: Leerer Einkaufswagen
-      expected_delivery: 
+      expected_delivery: Erwartete Lieferung
       free: Frei
-      load_more_products: 
-      new_address: 
-      next: 
-      optional: 
-      order_not_yet_received: 
-      out_of_stock: 
-      overview: 
-      overview_delivery: 
-      overview_pickup: 
-      pay_order: 
-      payment_method: 
-      pickup: 
-      products: 
-      reference: 
-      safe_checkout: 
-      shipping: 
-      shopping_cart: 
+      load_more_products: Folgende Produkte anzeigen
+      new_address: Neue Adresse
+      next: Weiter
+      optional: "(Optional)"
+      order_not_yet_received: Die Bestellung wurde noch nicht bestätigt
+      out_of_stock: Nicht auf Lager
+      overview: Übersicht
+      overview_delivery: Versandadresse
+      overview_pickup: Abholung
+      pay_order: Bezahlen
+      payment_method: Bezahlen
+      pickup: Abholung
+      products:
+        one: Produkt
+        other: "%{count} Produkte"
+      reference: Referenz
+      safe_checkout: Sichere Kaufabwicklung
+      shipping: Versand
+      shopping_cart: Warenkorb
       steps:
         delivery: Lieferung
         details: Einzelheiten
         overview: Übersicht
         payment: Bezahlung
         shopping_cart: Einkaufswagen
-      success: 
+      success: Bestellung aufgegeben
       tax: MwSt
-      terms_and_conditions_html: 
-      unavailable: 
+      terms_and_conditions_html: Mit dem Fortfahren erklären Sie sich mit unserer <a href="%{link}" target="_blank">Allgemeinen Geschäftsbedingungen</a> einverstanden
+      unavailable: Nicht mehr lieferbar
