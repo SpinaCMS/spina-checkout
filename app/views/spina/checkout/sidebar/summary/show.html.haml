@@ -73,11 +73,11 @@
     .pull-right= number_to_currency current_order.to_be_paid
     = Spina::Shop::Order.human_attribute_name(:to_be_paid)
 
-- if Spina::Checkout.config.codes_form?
+- if Spina::Checkout.config.codes_form
   / Codes form
   = render "codes_form" if current_order.building?
 
-- if Spina::Checkout.config.delivery_date_estimation? && current_order.requires_shipping?
+- if Spina::Checkout.config.delivery_date_estimation && current_order.requires_shipping?
   / Delivery date if the order is shipped
   .sidebar-delivery
     .sidebar-summary-line{data: {controller: 'delivery-date', delivery_date_url: delivery_date_path}}

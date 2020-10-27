@@ -9,5 +9,5 @@
     .input-wrapper{style: 'background: rgba(255, 255, 255, .75)'}
       = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? "Cadeaubon" : "Cadeaubon of kortingscode"), data: {target: "codes.input", action: "keydown->codes#pressEnter blur->codes#addCode"}
 
-    = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 16px; display: flex; align-items: center", data: {action: "codes#addCode"} do
+    = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 16px; display: flex; align-items: center" do
       %i.icon.icon-plus
