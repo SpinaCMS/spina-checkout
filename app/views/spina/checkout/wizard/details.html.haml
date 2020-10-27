@@ -58,7 +58,7 @@
             
           = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
 
-      - if f.object.order_items.any?{|item| item.orderable.must_be_of_age_to_buy?}
+      - if Spina::Checkout.config.must_be_of_age
         %h2.heading-2{style: "margin-top: 30px"}= Spina::Shop::Order.human_attribute_name(:date_of_birth)
 
         = render partial: "date_of_birth_fields", locals: {f: f}

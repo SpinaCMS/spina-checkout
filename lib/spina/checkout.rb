@@ -14,7 +14,8 @@ module Spina
                     :terms_and_conditions_path,
                     :login_popup,
                     :codes_form,
-                    :delivery_date_estimation
+                    :delivery_date_estimation,
+                    :must_be_of_age
          
     # Default colors
     self.header_color = '#fff'
@@ -36,5 +37,8 @@ module Spina
 
     # Estimate delivery date in sidebar
     self.delivery_date_estimation = true
+
+    # Must be of age = true creates a date of birth field
+    self.must_be_of_age = false
   end
 end
