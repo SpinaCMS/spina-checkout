@@ -77,9 +77,9 @@ module Spina
       private
       
         def get_first_product_image(orderable)
-          image = orderable.product_images.first
+          image = orderable.product_images.ordered.first
           if image.nil? && orderable.is_a?(Spina::Shop::Product)
-            image = orderable.children.joins(:product_images).first&.product_images&.first || orderable.root.product_images.first
+            image = orderable.children.joins(:product_images).first&.product_images&.ordered&.first || orderable.root.product_images&.ordered&.first
           end
           image
         end
