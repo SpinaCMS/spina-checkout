@@ -15,7 +15,8 @@ module Spina
                     :login_popup,
                     :codes_form,
                     :delivery_date_estimation,
-                    :must_be_of_age
+                    :must_be_of_age,
+                    :use_default_delivery_option
          
     # Default colors
     self.header_color = '#fff'
@@ -40,5 +41,8 @@ module Spina
 
     # Must be of age = true creates a date of birth field
     self.must_be_of_age = false
+    
+    # Have a default delivery option on every step
+    self.use_default_delivery_option = true
   end
 end

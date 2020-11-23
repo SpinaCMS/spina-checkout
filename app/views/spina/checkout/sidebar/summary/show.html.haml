@@ -28,14 +28,16 @@
     = Spina::Shop::Order.human_attribute_name(:sub_total_excl_tax)
 
 / Delivery costs
-- if current_order.delivery_option.present?
-  .sidebar-summary-line
-    .pull-right
+.sidebar-summary-line
+  .pull-right
+    - if current_order.delivery_option.nil?
+      –
+    - else
       - if current_order.delivery_price.zero?
         %strong.text-success=t 'spina.checkout.free'
       - else
         = number_to_currency current_order.delivery_price
-    = Spina::Shop::Order.human_attribute_name(:delivery_price)
+  = Spina::Shop::Order.human_attribute_name(:delivery_price)
 
 / Tax (only if order doesn't include tax)
 - if !current_order.prices_include_tax?

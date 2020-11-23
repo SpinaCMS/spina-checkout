@@ -7,7 +7,7 @@ module Spina
       
       before_action :redirect_to_root
       before_action :redirect_to_overview
-      before_action :set_defaults
+      before_action :set_defaults, only: [:show]
 
       steps :shopping_cart, :details, :delivery, :payment, :overview
 
@@ -78,11 +78,6 @@ module Spina
           if current_order.confirming?
             redirect_to wizard_path(:overview) and return unless step == :overview
           end
-        end
-
-        def set_defaults
-          current_order.delivery_option_id ||= current_order.delivery_options.first.id
-          current_order.payment_method ||= current_order.payment_methods.first
         end
 
         def prepare_validation!
