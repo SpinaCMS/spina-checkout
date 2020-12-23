@@ -3,7 +3,7 @@
     .sidebar-terms-and-conditions
       =t 'spina.checkout.terms_and_conditions_html', link: Spina::Checkout.config.terms_and_conditions_path, target: :blank
 
-  - if current_order.confirming?
+  - if current_order.payment_url.present?
     = link_to current_order.payment_url, class: "button button-brand button-block button-large", data: {disable: "..."} do
       =t "spina.checkout.pay_order"
   - else
