@@ -5,7 +5,7 @@
     .sidebar-title=t 'spina.checkout.overview'
   - else
     .sidebar-title
-      =t 'spina.checkout.products', count: current_order.order_items.sum(:quantity)
+      =t 'spina.checkout.products', count: current_order.total_items
       = link_to t('spina.checkout.edit'), wizard_path(:shopping_cart) if current_order.building?
 
     .sidebar-products{data: {controller: "sidebar-products", order_items_url: sidebar_order_items_url(format: :html)}}
