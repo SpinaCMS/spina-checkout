@@ -48,6 +48,7 @@ module Spina
         def detail_params
           params.require(:order).permit(
             :email, 
+            :company,
             :first_name, :last_name, 
             :date_of_birth, 
             :separate_delivery_address, 
