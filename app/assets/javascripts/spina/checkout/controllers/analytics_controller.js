@@ -5,7 +5,7 @@
     
     connect() {
       this.element[this.identifier] = this
-      trackCheckout()
+      this.trackCheckout()
     }
     
     trackCheckout() {
