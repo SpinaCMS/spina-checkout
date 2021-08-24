@@ -67,7 +67,7 @@
           
           .checkout-overview-partner
             %h4.heading-3=t 'spina.checkout.payment_method'
-            - if current_order.payment_issuer.present?
+            - if current_order.payment_issuer.present? && current_order.payment_method == "ideal"
               %div{style: "display: flex; align-items: center"}
                 = image_tag "spina/checkout/payment_methods/#{current_order.payment_method.parameterize}/payment_issuers/#{current_order.payment_issuer.parameterize}.png"
                 =t "payment_methods.#{current_order.payment_method.parameterize}.payment_issuers.#{current_order.payment_issuer.parameterize}"
