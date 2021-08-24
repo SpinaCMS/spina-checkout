@@ -12,6 +12,7 @@
       ga("ec:setAction", "checkout", {
         "step": this.step
       })
+      ga("send", "pageview")
     }
     
     get step() {
