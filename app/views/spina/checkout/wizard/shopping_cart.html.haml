@@ -1,4 +1,4 @@
-.overflow-container
+.overflow-container{data: {controller: "analytics", checkout_step: 1}}
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
     .main-content{data: {controller: "shopping-cart"}}
       = link_to '/', class: '', style: 'font-size: 14px; padding: 4px; padding-left: 0px; display: inline-block; text-decoration: none', data: {turbolinks: false} do

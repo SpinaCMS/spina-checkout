@@ -1,4 +1,4 @@
-.overflow-container
+.overflow-container{data: {controller: "analytics", checkout_step: 4}}
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
     .main-content
       %h2.heading-2.hide-mobile=t 'spina.checkout.steps.payment'

@@ -1,4 +1,4 @@
-.overflow-container
+.overflow-container{data: {controller: "analytics", checkout_step: 2}}
   = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true, data: {controller: 'validate'} do |f|
     .main-content{data: {controller: "details", login_popup: Spina::Checkout.config.login_popup}}
       %h2.heading-2.hide-mobile=t 'spina.checkout.steps.details'
