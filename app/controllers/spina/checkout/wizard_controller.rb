@@ -55,6 +55,7 @@ module Spina
             :billing_street1, :billing_street2, 
             :billing_house_number, :billing_house_number_addition, 
             :billing_postal_code, :billing_city, :billing_country_id, 
+            :delivery_company,
             :delivery_first_name, :delivery_last_name,
             :delivery_street1, :delivery_street2,
             :delivery_house_number, :delivery_house_number_addition,
