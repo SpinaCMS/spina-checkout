@@ -2,12 +2,12 @@
   = button_tag type: :button, class: 'button button-white button-mini', data: {action: "codes#showForm"} do
     %i.icon.icon-plus
     - if current_order.discount.present?
-      Cadeaubon
+      =t "spina.checkout.gift_card"
     - else
-      Cadeaubon of kortingscode
+      =t "spina.checkout.gift_card_or_discount"
   .form-group{data: {target: "codes.form"}}
     .input-wrapper{style: 'background: rgba(255, 255, 255, .75)'}
-      = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? "Cadeaubon" : "Cadeaubon of kortingscode"), data: {target: "codes.input", action: "keydown->codes#pressEnter blur->codes#addCode"}
+      = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? t("spina.checkout.gift_card") : t("spina.checkout.gift_card_or_discount")), data: {target: "codes.input", action: "keydown->codes#pressEnter blur->codes#addCode"}
 
     = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 16px; display: flex; align-items: center" do
       %i.icon.icon-plus

@@ -35,6 +35,8 @@ fr:
       empty_shopping_cart: Panier vide
       expected_delivery: Livraison prévue
       free: Gratuit
+      gift_card: Carte cadeau
+      gift_card_or_discount: Carte cadeau ou code de réduction
       load_more_products: Afficher tous les produits
       new_address: Nouvelle adresse
       next: Prochain

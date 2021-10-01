@@ -33,6 +33,8 @@ en:
       empty_shopping_cart: Empty shopping cart
       expected_delivery: Expected delivery
       free: Free
+      gift_card: Gift card
+      gift_card_or_discount: Gift card or discount code
       load_more_products: Load more products
       new_address: New address
       next: Next

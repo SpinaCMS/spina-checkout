@@ -10,7 +10,7 @@ nl:
       back_to_delivery: Terug naar verzending
       back_to_details: Terug naar gegevens
       back_to_payment: Terug naar betaling
-      back_to_webshop: Verder winkelen
+      back_to_webshop: Terug naar webshop
       back_to_website: Terug naar website
       billing_address: Factuuradres
       choose_country: Kies land
@@ -33,6 +33,8 @@ nl:
       empty_shopping_cart: Lege winkelmand
       expected_delivery: Verwachte leverdatum
       free: Gratis
+      gift_card: Cadeaubon
+      gift_card_or_discount: Cadeaubon of kortingscode
       load_more_products: Alle producten laten zien
       new_address: Nieuw adres
       next: Volgende
