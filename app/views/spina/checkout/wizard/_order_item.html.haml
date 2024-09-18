@@ -4,14 +4,14 @@
     
   .shopping-cart-item-name
     - if order_item.is_product?
-      = link_to order_item.orderable.root.materialized_path, data: {turbolinks: false} do
+      = link_to order_item.orderable.root.materialized_path, data: {turbo: false} do
         = order_item.orderable.name
         %small
           - if order_item.orderable.variant?
             = order_item.orderable.variant_name
         %strong= number_to_currency order_item.unit_price
     - else
-      = link_to order_item.orderable.materialized_path, data: {turbolinks: false} do
+      = link_to order_item.orderable.materialized_path, data: {turbo: false} do
         = order_item.orderable.name
         %small &nbsp;
         %strong= number_to_currency order_item.unit_price
