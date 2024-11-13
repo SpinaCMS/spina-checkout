@@ -2,6 +2,8 @@ nl:
   spina:
     checkout:
       account_login: Heb je al een account? Inloggen
+      account_active: Hey %{name}, je hebt al een account.
+      account_active_login_email: Inloggen met email
       add_discount: Kortingscode
       add_gift_card: Cadeaukaart
       are_you_sure: Weet je het zeker?
@@ -35,6 +37,7 @@ nl:
       free: Gratis
       gift_card: Cadeaubon
       gift_card_or_discount: Cadeaubon of kortingscode
+      invalid_code: Ongeldige code
       load_more_products: Alle producten laten zien
       new_address: Nieuw adres
       next: Volgende
@@ -46,6 +49,8 @@ nl:
       overview_pickup: Ophalen
       pay_order: Betalen
       payment_method: Betalingsmethode
+      payment_failed: Betaling nog niet afgerond, probeer opnieuw of pas de bestelling aan.
+      payment_failed_try_again: Bestelling aanpassen
       pickup: Ophalen
       products:
         one: Product

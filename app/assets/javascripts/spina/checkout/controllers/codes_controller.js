@@ -29,7 +29,7 @@
           this.inputTarget.value = ""
 
           if (response.status == 404) {
-            alert("Ongeldige code")
+            alert(this.element.dataset.invalidCode)
           }
         }
       }.bind(this))

@@ -2,6 +2,8 @@ en:
   spina:
     checkout:
       account_login: Already have an account? Login
+      account_active: Hey %{name}, you already have an account.
+      account_active_login_email: Log in with email
       add_discount: Discount
       add_gift_card: Gift card
       are_you_sure: Are you sure?
@@ -35,6 +37,7 @@ en:
       free: Free
       gift_card: Gift card
       gift_card_or_discount: Gift card or discount code
+      invalid_code: Invalid code
       load_more_products: Load more products
       new_address: New address
       next: Next
@@ -46,6 +49,8 @@ en:
       overview_pickup: Pickup
       pay_order: Pay order
       payment_method: Payment method
+      payment_failed: Payment not yet completed, please try again or adjust the order.
+      payment_failed_try_again: Adjust order
       pickup: Pickup
       products:
         one: Product

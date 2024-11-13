@@ -1,4 +1,4 @@
 .notification.notification-info
-  Hey #{@customer_account.customer.first_name}, je hebt al een account.
+  = t("spina.checkout.account_active", name: @customer_account.customer.first_name)
   %br/
-  = link_to 'Inloggen met email', login_path(email: @customer_account.email), data: {remote: true}
+  = link_to t("spina.checkout.account_active_login_email"), login_path(email: @customer_account.email), data: { remote: true }
