@@ -10,7 +10,7 @@
       fetch(order_item_url, {
         method: 'PUT',
         headers: {
-          'X-CSRF-Token': Rails.csrfToken(),
+          'X-CSRF-Token': this.token,
           'Content-Type': 'application/json'
         },
         credentials: 'same-origin',
@@ -45,6 +45,10 @@
 
     max(field) {
       return parseInt(field.dataset.maximum || 9999)
+    }
+
+    get token() {
+      return document.querySelector('meta[name="csrf-token"]').content
     }
 
     get sidebar() {
