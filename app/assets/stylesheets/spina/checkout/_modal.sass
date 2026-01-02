@@ -1,3 +1,4 @@
+// Legacy .modal overlay (CSS-based show/hide)
 .modal
   align-items: center
   background: rgba(0, 0, 0, .5)
@@ -11,6 +12,56 @@
   top: 0px
   width: 100%
   z-index: 10000
+
+// Native HTML5 dialog modal (Turbo Frames pattern)
+dialog.modal-dialog
+  display: none
+  background: transparent !important
+  background-color: transparent !important
+  border: 0 !important
+  border-width: 0 !important
+  border-style: none !important
+  border-color: transparent !important
+  outline: 0 !important
+  outline-width: 0 !important
+  outline-style: none !important
+  box-shadow: none !important
+  padding: 0 !important
+  margin: 0 !important
+  color: inherit !important
+
+  &, &:focus, &:focus-visible, &[open]
+    border: 0 !important
+    outline: 0 !important
+
+  &[open]
+    display: flex
+    align-items: center
+    justify-content: center
+    position: fixed
+    top: 0
+    left: 0
+    max-width: 100vw
+    max-height: 100vh
+    width: 100vw
+    height: 100vh
+    overflow: visible
+    z-index: 10001
+
+  &::backdrop
+    background: rgba(0, 0, 0, 0.5)
+
+  *
+    outline: 0 !important
+
+  turbo-frame
+    display: contents
+    background: transparent !important
+    border: 0 !important
+
+  .modal-window
+    border: 0 !important
+    outline: 0 !important
 
 .modal-window
   background: $gray-lightest
