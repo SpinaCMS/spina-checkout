@@ -20,6 +20,13 @@
   @media #{$mobile}
     display: block
 
+  // Support form element wrapping main-content and sidebar
+  > form
+    display: flex
+    flex: 1
+    @media #{$mobile}
+      display: block
+
   .main-content
     flex: 1
     overflow: auto

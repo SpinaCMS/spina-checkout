@@ -6,12 +6,12 @@
   - else
     .sidebar-title
       =t 'spina.checkout.products', count: current_order.total_items
-      = link_to t('spina.checkout.edit'), wizard_path(:shopping_cart) if current_order.building?
+      = link_to t('spina.checkout.edit'), spina_checkout.wizard_path(:shopping_cart) if current_order.building?
 
-    .sidebar-products{data: {controller: "sidebar-products", order_items_url: sidebar_order_items_url(format: :html)}}
+    .sidebar-products{data: {controller: "sidebar-products", "sidebar-products-order-items-url-value": spina_checkout.sidebar_order_items_url(format: :html)}}
       = render partial: 'spina/checkout/sidebar/order_items/list'
 
-  .sidebar-summary{data: {controller: "sidebar-summary", summary_url: sidebar_summary_url}}
+  .sidebar-summary{data: {controller: "sidebar-summary", "sidebar-summary-summary-url-value": spina_checkout.sidebar_summary_url}}
     = render partial: 'spina/checkout/sidebar/summary/blank_state'
 
   .sidebar-action= render partial: 'spina/checkout/sidebar/action'

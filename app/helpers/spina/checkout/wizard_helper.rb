@@ -17,43 +17,44 @@ module Spina
         value = options[:value] || form_builder.object.send(name) || options[:default]
         type = options[:type] || "text"
 
-        # .input-wrapper classes
         input_wrapper_classes = ["input-wrapper"]
         input_wrapper_classes << "input-wrapper-#{options[:size]}" if options[:size].present?
         input_wrapper_classes << "focused" if value.present?
         input_wrapper_class = input_wrapper_classes.join(" ")
 
-        # .input-wrapper data attribute
         data_attribute = {
           label: form_builder.object.class.human_attribute_name(name),
           controller: "input"
         }
 
-        # Checkout field wrapped in .input-wrapper div
         content_tag(:div, class: input_wrapper_class, data: data_attribute) do
-          targets = ["input.field"]
-          targets << "validate.required" if options[:required]
-          targets << "date.field" if options[:date]
-          targets << options[:target] if options[:target]
-
           actions = ["keyup->input#placeholder", "change->input#placeholder"]
           actions << "blur->validate#validateField" if options[:required]
           actions << "date#change" if options[:date]
           actions << options[:action] if options[:action]
-          
-          # Convert to formatted date
+
           value = I18n.l(value) if options[:date] && value.present?
 
+          field_data = {
+            "input-target": "field",
+            action: actions.join(" "),
+            name: name,
+            validate: options[:required]
+          }
+
+          field_data["validate-target"] = "required" if options[:required]
+          field_data["date-target"] = "field" if options[:date]
+
+          if options[:target].present?
+            controller, target_name = options[:target].split(".")
+            field_data["#{controller}-target"] = target_name
+          end
+
           form_builder.text_field(name, {
-            type: type, 
+            type: type,
             value: value,
             disabled: options[:disabled],
-            data: {
-              target: targets.join(" "),
-              action: actions.join(" "),
-              name: name,
-              validate: options[:required]
-            }
+            data: field_data
           })
         end
       end
@@ -68,7 +69,7 @@ module Spina
       def form_errors(form_object, *attributes)
         attributes.map do |attribute|
           next if form_object.errors[attribute].blank?
-          content_tag(:div, class: 'form-error', data: {target: 'validate.errorMessage', attribute: attribute}) do
+          content_tag(:div, class: 'form-error', data: {"validate-target": "errorMessage", attribute: attribute}) do
             "#{form_object.class.human_attribute_name attribute} #{form_object.errors[attribute][0]}"
           end
         end.compact.join("\n").html_safe

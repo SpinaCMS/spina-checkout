@@ -5,7 +5,7 @@ module Spina
 
       def destroy
         current_order.update(discount: nil)
-        render js: "document.querySelector('.sidebar-summary').controller.fetchSummary(); document.querySelector('.sidebar-products').controller.fetchProductList()"
+        redirect_back fallback_location: wizard_path(:shopping_cart)
       end
 
       private

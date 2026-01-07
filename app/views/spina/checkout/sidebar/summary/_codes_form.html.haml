@@ -1,13 +1,13 @@
-%div{style: "margin: 12px 0", data: {controller: "codes", url: codes_path, invalid_code: t("spina.checkout.invalid_code")}}
+%div{style: "margin: 12px 0", data: {controller: "codes", "codes-url-value": spina_checkout.codes_path, "codes-invalid-code-value": t("spina.checkout.invalid_code"), "codes-sidebar-summary-outlet": ".sidebar-summary", "codes-sidebar-products-outlet": ".sidebar-products"}}
   = button_tag type: :button, class: 'button button-white button-mini', data: {action: "codes#showForm"} do
     %i.icon.icon-plus
     - if current_order.discount.present?
       =t "spina.checkout.gift_card"
     - else
       =t "spina.checkout.gift_card_or_discount"
-  .form-group{data: {target: "codes.form"}}
+  .form-group{data: {"codes-target": "form"}}
     .input-wrapper{style: 'background: rgba(255, 255, 255, .75)'}
-      = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? t("spina.checkout.gift_card") : t("spina.checkout.gift_card_or_discount")), data: {target: "codes.input", action: "keydown->codes#pressEnter blur->codes#addCode"}
+      = text_field_tag :code, nil, class: 'input-small', placeholder: (current_order.discount.present? ? t("spina.checkout.gift_card") : t("spina.checkout.gift_card_or_discount")), data: {"codes-target": "input", action: "keydown->codes#pressEnter blur->codes#addCode"}
 
     = button_tag type: :button, class: 'button button-small button-white', style: "background: none; font-size: 16px; display: flex; align-items: center" do
       %i.icon.icon-plus

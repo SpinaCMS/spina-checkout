@@ -1,24 +1,24 @@
 .overflow-container{data: {controller: "analytics", checkout_step: 1}}
-  = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true do |f|
-    .main-content{data: {controller: "shopping-cart"}}
-      = link_to '/', class: '', style: 'font-size: 14px; padding: 4px; padding-left: 0px; display: inline-block; text-decoration: none', data: {turbo: false} do
-        %i.icon.icon-arrow-left
-        %span=t 'spina.checkout.back_to_webshop'
-      - if current_order.order_items.any?
-        %h2.heading-2=t 'spina.checkout.shopping_cart'
-      - else
-        %h2.heading-2=t 'spina.checkout.empty_shopping_cart'
-
-      = render partial: 'spina/checkout/shared/notifications'
-
-      .shopping-cart-item-list= render 'shopping_cart_list'
-
-      %div{style: 'margin-top: 30px'}
+  .container
+    = form_with model: current_order, url: spina_checkout.wizard_path, method: :put, local: true do |f|
+      .main-content{data: {controller: "cart", "cart-sidebar-summary-outlet": ".sidebar-summary"}}
+        = link_to '/', class: '', style: 'font-size: 14px; padding: 4px; padding-left: 0px; display: inline-block; text-decoration: none', data: {turbo: false} do
+          %i.icon.icon-arrow-left
+          %span=t 'spina.checkout.back_to_webshop'
         - if current_order.order_items.any?
-          .pull-right
-            = link_to empty_cart_path, class: 'button button-white button-mini', data: {method: :delete} do
-              %i.icon.icon-trash
-              = t("spina.checkout.empty_cart")
+          %h2.heading-2=t 'spina.checkout.shopping_cart'
+        - else
+          %h2.heading-2=t 'spina.checkout.empty_shopping_cart'
 
-    .sidebar
-      = render partial: 'spina/checkout/sidebar/sidebar'
+        = render partial: 'spina/checkout/shared/notifications'
+
+        .shopping-cart-item-list= render 'shopping_cart_list'
+
+        %div{style: 'margin-top: 30px'}
+          - if current_order.order_items.any?
+            .pull-right
+              = link_to spina_checkout.empty_cart_path, class: 'button button-white button-mini', data: {turbo_method: :delete} do
+                %i.icon.icon-trash
+                = t("spina.checkout.empty_cart")
+
+      .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

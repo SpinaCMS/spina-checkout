@@ -2,4 +2,4 @@
   = render partial: 'spina/checkout/sidebar/order_item', collection: current_order.order_items.order(:id).limit(11)
 .sidebar-products-navigation
   - if current_order.order_items.size > 11
-    = link_to t("spina.checkout.load_more_products"), sidebar_order_items_path(page: 2), class: 'button button-white button-block button-small', data: {remote: true}
+    = link_to t("spina.checkout.load_more_products"), spina_checkout.sidebar_order_items_path(page: 2), class: 'button button-white button-block button-small', data: {turbo_frame: "_self"}

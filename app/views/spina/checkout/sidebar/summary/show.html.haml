@@ -6,7 +6,7 @@
     %span.text-success
       = current_order.discount.description
       - if current_order.building?
-        = link_to discount_path, class: 'button button-mini', data: {method: :delete, remote: true} do
+        = link_to spina_checkout.discount_path, class: 'button button-mini', data: {turbo_method: :delete} do
           &times;
 
 / Placeholder
@@ -63,7 +63,7 @@
       .sidebar-summary-line.text-success
         .pull-right= number_to_currency gift_card[:gift_card].remaining_balance * -1
         = Spina::Shop::GiftCard.model_name.human
-        = link_to gift_card_path(gift_card[:gift_card]), class: 'button button-mini', data: {method: :delete, remote: true} do
+        = link_to spina_checkout.gift_card_path(gift_card[:gift_card]), class: 'button button-mini', data: {turbo_method: :delete} do
           %i.icon.icon-trash
 
   - else
@@ -82,6 +82,6 @@
 - if Spina::Checkout.config.delivery_date_estimation && current_order.requires_shipping?
   / Delivery date if the order is shipped
   .sidebar-delivery
-    .sidebar-summary-line{data: {controller: 'delivery-date', delivery_date_url: delivery_date_path}}
-      .pull-right{data: {target: 'delivery-date.date'}}
+    .sidebar-summary-line{data: {controller: 'delivery-date', "delivery-date-url-value": spina_checkout.delivery_date_path}}
+      .pull-right{data: {"delivery-date-target": "date"}}
       =t "spina.checkout.expected_delivery"

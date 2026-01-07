@@ -1,7 +1,7 @@
 %nav#wizard
   - wizard_steps.each_with_index do |step, index|
     - if past_step?(step) && current_order&.building?
-      = link_to wizard_path(step), class: "wizard-step" do
+      = link_to spina_checkout.wizard_path(step), class: "wizard-step" do
         .wizard-icon= index + 1
         %span=t "spina.checkout.steps.#{step}"
     - else

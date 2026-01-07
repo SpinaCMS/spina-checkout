@@ -1,71 +1,72 @@
 .overflow-container{data: {controller: "analytics", checkout_step: 2}}
-  = form_with model: current_order, url: wizard_path, method: :put, class: 'container', local: true, data: {controller: 'validate'} do |f|
-    .main-content{data: {controller: "details", login_popup: Spina::Checkout.config.login_popup}}
-      %h2.heading-2.hide-mobile=t 'spina.checkout.steps.details'
+  .container
+    = form_with model: current_order, url: spina_checkout.wizard_path, method: :put, local: true, data: {controller: 'validate'} do |f|
+      .main-content{data: {controller: "details", "details-login-popup-value": Spina::Checkout.config.login_popup}}
+        %h2.heading-2.hide-mobile=t 'spina.checkout.steps.details'
 
-      -#= render partial: 'spina/checkout/shared/notifications'
+        -#= render partial: 'spina/checkout/shared/notifications'
 
-      .form-group
-        = checkout_field(f, :email, target: "details.email", action: "details#checkExistingCustomerAccount", required: "email", default: current_customer&.email)
-
-      .form-errors= form_errors(f.object, :email)
-
-      - unless logged_in?
-        %div{data: {target: "details.loginNotification", existing_customer_account_path: spina_checkout.existing_customer_account_path}}
-          = link_to t("spina.checkout.account_login"), login_path, style: "font-size: 15px", data: {remote: true, target: "details.loginLink"}
-
-      %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
-
-      - if f.object.business?
         .form-group
-          = checkout_field(f, :company, required: true, default: current_customer&.company)
+          = checkout_field(f, :email, target: "details.email", action: "details#checkExistingCustomerAccount", required: "email", default: current_customer&.email)
 
-      .form-group
-        = checkout_field(f, :first_name, required: true, default: current_customer&.first_name)
-        = checkout_field(f, :last_name, required: true, default: current_customer&.last_name)
+        .form-errors= form_errors(f.object, :email)
 
-      .form-errors= form_errors(f.object, :first_name, :last_name)
+        - unless logged_in?
+          %div{data: {"details-target": "loginNotification", "details-existing-customer-account-path-value": spina_checkout.existing_customer_account_path}}
+            = link_to t("spina.checkout.account_login"), spina_checkout.login_path, style: "font-size: 15px", data: {turbo_frame: "modal", "details-target": "loginLink"}
 
-      / Address fields
-      = render partial: 'address_fields', locals: {f: f, address_type: "billing"}
+        %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.billing_address"
 
-      %div
-        %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.delivery_address"
+        - if f.object.business?
+          .form-group
+            = checkout_field(f, :company, required: true, default: current_customer&.company)
+
         .form-group
-          .button-group
-            %label.form-label.button.button-white.button-small.button-radio-button
-              = f.radio_button :separate_delivery_address, false, data: {action: 'details#toggleSeparateDeliveryAddress'}
-              =t 'spina.checkout.delivery_address_same_as_billing_address'
+          = checkout_field(f, :first_name, required: true, default: current_customer&.first_name)
+          = checkout_field(f, :last_name, required: true, default: current_customer&.last_name)
 
-            %label.form-label.button.button-white.button-small.button-radio-button
-              = f.radio_button :separate_delivery_address, true, data: {action: 'details#toggleSeparateDeliveryAddress', target: 'details.separateDeliveryAddress'}
-              = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
-        
-        %div{data: {target: "details.deliveryAddress", controller: "address-book"}}
-          - if current_customer&.addresses&.many?
+        .form-errors= form_errors(f.object, :first_name, :last_name)
+
+        / Address fields
+        = render partial: 'address_fields', locals: {f: f, address_type: "billing"}
+
+        %div
+          %h2.heading-2{style: "margin-top: 30px"}=t "spina.checkout.delivery_address"
+          .form-group
+            .button-group
+              %label.form-label.button.button-white.button-small.button-radio-button
+                = f.radio_button :separate_delivery_address, false, data: {action: 'details#toggleSeparateDeliveryAddress'}
+                =t 'spina.checkout.delivery_address_same_as_billing_address'
+
+              %label.form-label.button.button-white.button-small.button-radio-button
+                = f.radio_button :separate_delivery_address, true, data: {action: 'details#toggleSeparateDeliveryAddress', "details-target": 'separateDeliveryAddress'}
+                = Spina::Shop::Order.human_attribute_name(:separate_delivery_address)
+
+          %div{data: {"details-target": "deliveryAddress", controller: "address-book"}}
+            - if current_customer&.addresses&.many?
+              .form-group
+                .input-wrapper.focused{data: {label: Spina::Shop::Order.human_attribute_name(:separate_delivery_address)}}
+                  .form-dropdown
+                    = select_tag :address_book, options_for_select(current_customer.addresses.where(country_id: current_customer.country_id).map{|address| ["#{address.address}, #{address.city} (#{address.name})", address.id, {data: {first_name: address.first_name, last_name: address.last_name, company: address.company, postal_code: address.postal_code, house_number: address.house_number, house_number_addition: address.house_number_addition, city: address.city, street: address.street1}}]}), {include_blank: t("spina.checkout.choose_from_address_book"), data: {action: "address-book#chooseAddress"}}
+
             .form-group
-              .input-wrapper.focused{data: {label: Spina::Shop::Order.human_attribute_name(:separate_delivery_address)}}
-                .form-dropdown
-                  = select_tag :address_book, options_for_select(current_customer.addresses.where(country_id: current_customer.country_id).map{|address| ["#{address.address}, #{address.city} (#{address.name})", address.id, {data: {first_name: address.first_name, last_name: address.last_name, company: address.company, postal_code: address.postal_code, house_number: address.house_number, house_number_addition: address.house_number_addition, city: address.city, street: address.street1}}]}), {include_blank: t("spina.checkout.choose_from_address_book"), data: {action: "address-book#chooseAddress"}}
+              = checkout_field(f, :delivery_company)
+            .form-group
+              = checkout_field(f, :delivery_first_name, required: true)
+              = checkout_field(f, :delivery_last_name, required: true)
 
-          .form-group
-            = checkout_field(f, :delivery_company)
-          .form-group
-            = checkout_field(f, :delivery_first_name, required: true)
-            = checkout_field(f, :delivery_last_name, required: true)
+            .form-errors= form_errors(f.object, :delivery_first_name, :delivery_last_name)
 
-          .form-errors= form_errors(f.object, :delivery_first_name, :delivery_last_name)
-            
-          = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
+            = render partial: 'address_fields', locals: {f: f, address_type: "delivery"}
 
-      - if Spina::Checkout.config.must_be_of_age
-        %h2.heading-2{style: "margin-top: 30px"}= Spina::Shop::Order.human_attribute_name(:date_of_birth)
+        - if Spina::Checkout.config.must_be_of_age
+          %h2.heading-2{style: "margin-top: 30px"}= Spina::Shop::Order.human_attribute_name(:date_of_birth)
 
-        = render partial: "date_of_birth_fields", locals: {f: f}
+          = render partial: "date_of_birth_fields", locals: {f: f}
 
-      .form-group.hide-mobile{style: "margin-top: 30px"}
-        = link_to wizard_path('shopping_cart'), class: 'button button-link checkout-back-link', style: 'padding-left: 0' do
-          %i.icon.icon-arrow-left
-          %span=t 'spina.checkout.back'
+        .form-group.hide-mobile{style: "margin-top: 30px"}
+          = link_to spina_checkout.wizard_path('shopping_cart'), class: 'button button-link checkout-back-link', style: 'padding-left: 0' do
+            %i.icon.icon-arrow-left
+            %span=t 'spina.checkout.back'
 
-    .sidebar= render partial: 'spina/checkout/sidebar/sidebar'
+      .sidebar= render partial: 'spina/checkout/sidebar/sidebar'

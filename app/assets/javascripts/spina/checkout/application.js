@@ -1,1 +1,2 @@
-//= require spina/checkout/checkout
+// spina-checkout: No JavaScript included
+// Host app provides all Stimulus controllers
